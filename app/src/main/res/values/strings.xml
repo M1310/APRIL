@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">APRIL</string>
+    <string name="button">Button</string>
+    <string name="view_exercises">View Exercises</string>
+    <string name="april">APRIL</string>
+    <string name="view_nutrition">View Nutrition</string>
+</resources>
