@@ -1,4 +1,4 @@
-package com.example.mwils.april_demo;
+package com.example.mwils.april;
 
 import org.junit.Test;
 

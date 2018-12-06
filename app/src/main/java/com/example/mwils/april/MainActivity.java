@@ -1,4 +1,4 @@
-package com.example.mwils.april_demo;
+package com.example.mwils.april;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

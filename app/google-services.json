@@ -8,6 +8,37 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:661470071694:android:f800c506bba08894",
+        "android_client_info": {
+          "package_name": "com.example.mwils.april"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661470071694-lnbrdfps21nebjnt7tpr4bbf4iuaohpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA502sP16bbIvrB30XOW0G2pTBeaeJp5vA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:661470071694:android:cc98432679cb8ccb",
         "android_client_info": {
           "package_name": "com.example.mwils.april_demo"

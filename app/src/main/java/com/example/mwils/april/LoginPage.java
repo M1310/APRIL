@@ -1,4 +1,4 @@
-package com.example.mwils.april_demo;
+package com.example.mwils.april;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
