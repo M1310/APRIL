@@ -4,4 +4,7 @@
     <string name="view_exercises">View Exercises</string>
     <string name="april">APRIL</string>
     <string name="view_nutrition">View Nutrition</string>
+    <string name="april_logo_description">APRIL Logo</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
