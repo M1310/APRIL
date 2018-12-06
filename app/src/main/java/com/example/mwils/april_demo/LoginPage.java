@@ -23,6 +23,10 @@ public class LoginPage extends AppCompatActivity {
     //Creating instance of Firebase authenticator
     private FirebaseAuth auth;
 
+    /**
+     * Creates instance of LoginPage
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +56,10 @@ public class LoginPage extends AppCompatActivity {
 
     }//end method onCreate
 
-    //Method used to check if either login fields are empty, and then calls method to validate crendentials
+    /**
+     * Method used to check if either login fields are empty, and then calls method to validate credentials
+     * @return
+     */
     private Boolean login(){
         //Setting boolean flag
         Boolean result = false;
@@ -74,14 +81,20 @@ public class LoginPage extends AppCompatActivity {
         return result;
     }//end method validate
 
-    //Method to assign variables to page elements
+    /**
+     * Method to assign variables to page element
+     */
     private void setupFields(){
         userName = (EditText) findViewById(R.id.ptUsername);
         userPassword = (EditText) findViewById(R.id.password);
         btnLogin = (Button) findViewById(R.id.btnLogin);
     }//end method setupFields
 
-    //Method to validate login details and log into application
+    /**
+     * Method to validate login details and log into application
+     * @param userName
+     * @param password
+     */
     private void validate(String userName, String password){
         //takes the user credentials and checks them against the Database
         auth.signInWithEmailAndPassword(userName, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
