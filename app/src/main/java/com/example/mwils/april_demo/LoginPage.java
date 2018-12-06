@@ -50,7 +50,6 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View view){
                login();
-
             }//end onClick
         });//end btnLogin onClickListener
 
@@ -79,7 +78,7 @@ public class LoginPage extends AppCompatActivity {
             }//end if else statement
 
         return result;
-    }//end method validate
+    }//end method login
 
     /**
      * Method to assign variables to page element
