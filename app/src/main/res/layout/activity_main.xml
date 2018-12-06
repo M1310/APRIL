@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/gradient"
     tools:context=".MainActivity">
 
     <TextView
@@ -30,6 +30,7 @@
         android:layout_marginLeft="72dp"
         android:layout_marginTop="124dp"
         android:text="@string/view_exercises"
+        android:background="@drawable/rounded_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,6 +42,7 @@
         android:layout_marginLeft="72dp"
         android:layout_marginTop="44dp"
         android:text="@string/view_nutrition"
+        android:background="@drawable/rounded_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnExercises" />
 
