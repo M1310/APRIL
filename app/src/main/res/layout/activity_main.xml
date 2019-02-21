@@ -8,13 +8,13 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="128dp"
-        android:layout_height="48dp"
+        android:layout_width="136dp"
+        android:layout_height="61dp"
         android:gravity="center"
         android:text="@string/april"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
         android:textSize="20pt"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,11 +26,11 @@
         android:id="@+id/btnExercises"
         android:layout_width="200dp"
         android:layout_height="80dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="124dp"
-        android:text="@string/view_exercises"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/rounded_button"
+        android:text="@string/view_exercises"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,12 +38,31 @@
         android:id="@+id/btnNutrition"
         android:layout_width="200dp"
         android:layout_height="80dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="44dp"
-        android:text="@string/view_nutrition"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_button"
+        android:text="@string/view_nutrition"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnExercises" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="97dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
 
 </android.support.constraint.ConstraintLayout>
