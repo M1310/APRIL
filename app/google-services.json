@@ -15,36 +15,13 @@
       },
       "oauth_client": [
         {
-          "client_id": "661470071694-lnbrdfps21nebjnt7tpr4bbf4iuaohpf.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA502sP16bbIvrB30XOW0G2pTBeaeJp5vA"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
+          "client_id": "661470071694-cs228ab6pmc0ts3j5dl796h2bnpp5qkr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mwils.april",
+            "certificate_hash": "fd5373db17f04313b4bce87cb3a5b662f7307962"
+          }
         },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:661470071694:android:cc98432679cb8ccb",
-        "android_client_info": {
-          "package_name": "com.example.mwils.april_demo"
-        }
-      },
-      "oauth_client": [
         {
           "client_id": "661470071694-lnbrdfps21nebjnt7tpr4bbf4iuaohpf.apps.googleusercontent.com",
           "client_type": 3
@@ -60,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "661470071694-lnbrdfps21nebjnt7tpr4bbf4iuaohpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
