@@ -1,27 +1,43 @@
 package com.example.mwils.april;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+
+
 
 public class LoginPage extends AppCompatActivity {
     //Initialising the login fields
     private EditText userName, userPassword;
     //Initialising login button
     private Button btnLogin;
+    //Initialising logo variable
+    private ImageView imgLogo;
     //Creating instance of Firebase authenticator
     private FirebaseAuth auth;
+    //Creating variable for FirebaseStorage
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
 
     /**
      * Creates instance of LoginPage
@@ -32,6 +48,7 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
+        //assigns the fields to variables that'll be passed through
         setupFields();
 
         //Calling instance inside onCreate method
@@ -41,7 +58,7 @@ public class LoginPage extends AppCompatActivity {
         FirebaseUser user = auth.getCurrentUser();
         if (user!= null){
             //finish method that resets the current activities state
-            finish();;
+            finish();
             //if the user has already logged in, send them to the main page
             startActivity(new Intent(LoginPage.this, MainActivity.class));
         }//end if statement
@@ -53,15 +70,41 @@ public class LoginPage extends AppCompatActivity {
             }//end onClick
         });//end btnLogin onClickListener
 
+        //Used to download the logo from the from the DB
+        //WILL GET REMOVED, BUT KEEPING HERE AS A REFERENCE FOR WHEN SIMILAR WORK IS BEING DONE
+        StorageReference storageRef = storage.getReference();
+
+        StorageReference logoRef = storageRef.child("logo.png");
+
+
+        logoRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Log.d("mytag","got the download URL");
+                String test = uri.toString();
+
+                Context context = getApplicationContext();
+                Glide.with(context)
+                        .load(test)
+                        .into(imgLogo);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("mytag","didn't get it lad, sorry");
+            }//end onFailure catch
+        });//end onFailureListener
+        //REMOVE THE ABOVE
+
+
+
     }//end method onCreate
 
     /**
      * Method used to check if either login fields are empty, and then calls method to validate credentials
      * @return
      */
-    private Boolean login(){
-        //Setting boolean flag
-        Boolean result = false;
+    private void login(){
 
         //Gathering text from login fields
         String name = userName.getText().toString();
@@ -73,20 +116,20 @@ public class LoginPage extends AppCompatActivity {
             Toast.makeText(this, "Please enter all login details", Toast.LENGTH_SHORT).show();
             }else{
             //if both are not empty, runs method to validate credentials
-            result = true;
             validate(name, password);
             }//end if else statement
 
-        return result;
     }//end method login
 
     /**
      * Method to assign variables to page element
      */
     private void setupFields(){
-        userName = (EditText) findViewById(R.id.ptUsername);
-        userPassword = (EditText) findViewById(R.id.password);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
+        userName = findViewById(R.id.ptUsername);
+        userPassword = findViewById(R.id.password);
+        btnLogin = findViewById(R.id.btnLogin);
+        imgLogo = findViewById(R.id.logo);
+
     }//end method setupFields
 
     /**
