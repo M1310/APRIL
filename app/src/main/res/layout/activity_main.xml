@@ -24,11 +24,11 @@
 
     <Button
         android:id="@+id/btnExercises"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="213dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="224dp"
         android:background="@drawable/rounded_button"
         android:text="@string/view_exercises"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,11 +36,11 @@
 
     <Button
         android:id="@+id/btnNutrition"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="213dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/rounded_button"
         android:text="@string/view_nutrition"
         app:layout_constraintStart_toStartOf="parent"

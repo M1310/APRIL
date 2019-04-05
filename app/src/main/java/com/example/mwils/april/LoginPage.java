@@ -70,6 +70,8 @@ public class LoginPage extends AppCompatActivity {
             }//end onClick
         });//end btnLogin onClickListener
 
+        //Used to download the logo from the from the DB
+        //WILL GET REMOVED, BUT KEEPING HERE AS A REFERENCE FOR WHEN SIMILAR WORK IS BEING DONE
         StorageReference storageRef = storage.getReference();
 
         StorageReference logoRef = storageRef.child("logo.png");
@@ -90,8 +92,9 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.d("mytag","didn't get it lad, sorry");
-            }
-        });
+            }//end onFailure catch
+        });//end onFailureListener
+        //REMOVE THE ABOVE
 
 
 

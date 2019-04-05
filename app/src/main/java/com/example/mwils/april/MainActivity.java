@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     //assigns a variable to the logout button
     //Creating variable for the LogOut button
-    private Button logout = (Button)findViewById(R.id.btnLogOut);
+    private Button logout; Button exercises; Button nutrition;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,14 @@ public class MainActivity extends AppCompatActivity {
         //creates an instance of the main class
         auth = FirebaseAuth.getInstance();
 
-        //loging the user out when the button is clicked
+        //assignsing the logout variable to btnLogOut
+        logout = (Button)findViewById(R.id.btnLogOut);
+        //assigning the exercises variable to btnExercises
+        exercises = (Button)findViewById(R.id.btnExercises);
+        //asigning the nutrition variable to btnNutrition
+        nutrition = (Button)findViewById(R.id.btnNutrition);
+
+        //logging the user out when the button is clicked
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,5 +49,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, LoginPage.class));
             }//end onClick method
         });//end onClickListender
+
+        //navigating the user to the Nutrition Main page
+        nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Nutrition.class));
+            }//end onClick method
+        });
     }//end onCreate method
 }//end class
