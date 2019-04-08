@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 //redirects the user back to the login page
                 startActivity(new Intent(MainActivity.this, LoginPage.class));
             }//end onClick method
-        });//end onClickListender
+        });//end onClickListener
 
         //navigating the user to the Nutrition Main page
         nutrition.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Nutrition.class));
             }//end onClick method
-        });
+        });//end onClickListener
+
+        //navigating the user to the Exercises Main page
+        exercises.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Exercises.class));
+            }//end onClick method
+        });//end onClickListener
     }//end onCreate method
 }//end class

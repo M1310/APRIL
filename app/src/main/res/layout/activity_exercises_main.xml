@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".Nutrition">
+    tools:context=".Exercises">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="214dp"
         android:layout_height="61dp"
         android:gravity="center"
-        android:text="@string/nutrition"
+        android:text="@string/exercises"
         android:textColor="@android:color/white"
         android:textSize="20pt"
         android:textStyle="bold"
@@ -32,7 +32,7 @@
         android:layout_marginLeft="112dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/rounded_button"
-        android:text="@string/view_nutrition_info"
+        android:text="@string/view_exercises_programme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/rounded_button"
-        android:text="@string/view_illness_info"
+        android:text="@string/view_warmup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnExerProg" />
@@ -61,21 +61,21 @@
         android:layout_marginLeft="112dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/rounded_button"
-        android:text="@string/view_meals"
+        android:text="@string/view_standing_exercises"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnExerWarmup" />
 
     <Button
-        android:id="@+id/btnNutrSmoothies"
+        android:id="@+id/btnExerWarning"
         android:layout_width="187dp"
         android:layout_height="92dp"
         android:layout_marginStart="112dp"
         android:layout_marginLeft="112dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/rounded_button"
-        android:text="@string/view_smoothies"
+        android:text="@string/view_warning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
