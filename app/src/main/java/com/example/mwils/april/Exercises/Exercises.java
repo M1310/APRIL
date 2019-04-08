@@ -32,5 +32,21 @@ public class Exercises extends AppCompatActivity {
                 startActivity(new Intent(Exercises.this, ExerciseProgramme.class));
             }//end onClick method
         });//end OnClickListener
-    }
-}
+
+        //navigating the user to the Warmup/Cooldown page
+        warmup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Exercises.this, ExercisesWarmup.class));
+            }//end onClick method
+        });//end OnClickListener
+
+        //navigating the user to the Standing Exercises page
+        standing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Exercises.this, ExercisesStanding.class));
+            }//end onClick method
+        });//end OnClickListener
+    }//end onCreate method
+}//end class
