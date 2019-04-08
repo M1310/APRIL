@@ -8,16 +8,6 @@
     android:background="@drawable/gradient"
     tools:context=".Nutrition">
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="214dp"
@@ -35,7 +25,7 @@
         app:layout_constraintVertical_bias="0.107" />
 
     <Button
-        android:id="@+id/NutrInfo"
+        android:id="@+id/btnNutrInfo"
         android:layout_width="187dp"
         android:layout_height="92dp"
         android:layout_marginStart="112dp"
@@ -60,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NutrInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/btnNutrInfo" />
 
     <Button
         android:id="@+id/btnNutrMeals"
