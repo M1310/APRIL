@@ -14,6 +14,7 @@
         <activity android:name=".Exercises.ExercisesStanding"></activity>
         <activity android:name=".Exercises.ExercisesWarmup" />
         <activity android:name=".Exercises.Exercises" />
+        <activity android:name=".Exercises.ExercisesWarning" />
         <activity android:name=".Nutrition.NutritionSick" />
         <activity
             android:name=".Nutrition.NutritionInformation.NutritionInformation"
