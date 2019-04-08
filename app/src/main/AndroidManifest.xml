@@ -22,7 +22,16 @@
         </activity>
         <activity
             android:name=".NutritionMeals"
-            android:label="@string/title_activity_nutrition_meals"
+            android:label="NutritionMeals"
+            android:parentActivityName=".Nutrition"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.mwils.april.Nutrition" />
+        </activity>
+        <activity
+            android:name=".NutritionSmoothies"
+            android:label="NutritionSmoothies"
             android:parentActivityName=".Nutrition"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
