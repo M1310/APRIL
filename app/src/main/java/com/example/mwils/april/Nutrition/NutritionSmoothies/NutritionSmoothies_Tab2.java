@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mwils.april.R;
+
 public class NutritionSmoothies_Tab2 extends Fragment {
     private static final String TAG = "Nutrition_Smoothies_Tab2";
 
