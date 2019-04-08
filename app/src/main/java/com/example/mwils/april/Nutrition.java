@@ -45,6 +45,14 @@ public class Nutrition extends AppCompatActivity {
                 startActivity(new Intent(Nutrition.this, NutritionMeals.class));
             }//end onClick method
         });//end OnClickListener
+
+        //navigating the user to the Smoothie Recipes page
+        smoothies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Nutrition.this, NutritionSmoothies.class));
+            }//end onClick method
+        });//end OnClickListener
     }//end onCreate method
 
 }
