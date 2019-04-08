@@ -33,4 +33,5 @@
     <string name="view_warmup">Warmup / Cooldown</string>
     <string name="view_standing_exercises">Standing Exercises</string>
     <string name="view_warning">Warning</string>
+    <string name="title_activity_exercise_programme">ExerciseProgramme</string>
 </resources>
