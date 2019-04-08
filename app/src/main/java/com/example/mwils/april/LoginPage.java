@@ -70,31 +70,7 @@ public class LoginPage extends AppCompatActivity {
             }//end onClick
         });//end btnLogin onClickListener
 
-        //Used to download the logo from the from the DB
-        //WILL GET REMOVED, BUT KEEPING HERE AS A REFERENCE FOR WHEN SIMILAR WORK IS BEING DONE
-        StorageReference storageRef = storage.getReference();
 
-        StorageReference logoRef = storageRef.child("logo.png");
-
-
-        logoRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Log.d("mytag","got the download URL");
-                String test = uri.toString();
-
-                Context context = getApplicationContext();
-                Glide.with(context)
-                        .load(test)
-                        .into(imgLogo);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("mytag","didn't get it lad, sorry");
-            }//end onFailure catch
-        });//end onFailureListener
-        //REMOVE THE ABOVE
 
 
 

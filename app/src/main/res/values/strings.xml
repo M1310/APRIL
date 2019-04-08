@@ -37,4 +37,5 @@
     <string name="warmup">Warmup / Cooldown</string>
     <string name="standing">Standing Exercises</string>
     <string name="exercise_warning">Is there any time I should not exercise?</string>
+    <string name="admin">Admin</string>
 </resources>

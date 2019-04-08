@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Exercises.ExercisesStanding"></activity>
+        <activity android:name=".Admin"></activity>
+        <activity android:name=".Exercises.ExercisesStanding" />
         <activity android:name=".Exercises.ExercisesWarmup" />
         <activity android:name=".Exercises.Exercises" />
         <activity android:name=".Exercises.ExercisesWarning" />
