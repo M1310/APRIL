@@ -30,11 +30,19 @@ public class Nutrition extends AppCompatActivity {
         //assigning the smoothies variable to btnNutrSmoothies
         smoothies = (Button) findViewById(R.id.btnNutrSmoothies);
 
-        //navigating the user to the Nutrition Main page
+        //navigating the user to the Nutrition Information page
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Nutrition.this, NutritionInformation.class));
+            }//end onClick method
+        });//end OnClickListener
+
+        //navigating the user to the Meal Ideas page
+        meals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Nutrition.this, NutritionMeals.class));
             }//end onClick method
         });//end OnClickListener
     }//end onCreate method

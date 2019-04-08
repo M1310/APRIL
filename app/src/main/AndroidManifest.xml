@@ -21,6 +21,15 @@
                 android:value="com.example.mwils.april.Nutrition" />
         </activity>
         <activity
+            android:name=".NutritionMeals"
+            android:label="@string/title_activity_nutrition_information"
+            android:parentActivityName=".Nutrition"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.mwils.april.Nutrition" />
+        </activity>
+        <activity
             android:name=".Nutrition"
             android:label="@string/title_activity_nutrition_main" />
         <activity android:name=".LoginPage">
