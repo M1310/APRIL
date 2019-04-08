@@ -11,7 +11,7 @@ import com.example.mwils.april.R;
 
 public class Exercises extends AppCompatActivity {
 
-    private Button programme; Button warmup; Button standing;
+    private Button programme; Button warmup; Button standing; Button warning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,8 @@ public class Exercises extends AppCompatActivity {
         warmup = (Button) findViewById(R.id.btnExerWarmup);
         //assigning the standing variable to btnExerStanding
         standing = (Button) findViewById(R.id.btnExerStanding);
+        //assing the warning varible to btnExerWarning
+        warning = (Button) findViewById(R.id.btnExerWarning);
 
         //navigating the user to the Exercise Programme page
         programme.setOnClickListener(new View.OnClickListener() {
@@ -48,5 +50,14 @@ public class Exercises extends AppCompatActivity {
                 startActivity(new Intent(Exercises.this, ExercisesStanding.class));
             }//end onClick method
         });//end OnClickListener
+
+        //displaying the exercise warning pop-up box when the warning button is clicked
+        warning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Exercises.this, ExercisesWarning.class));
+            }//end onClick method
+        });//end OnClickListener
+
     }//end onCreate method
 }//end class
