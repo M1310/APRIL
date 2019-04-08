@@ -23,6 +23,15 @@
                 android:value="com.example.mwils.april.Nutrition" />
         </activity>
         <activity
+            android:name=".ExerciseProgramme"
+            android:label="@string/title_activity_exercise_programme"
+            android:parentActivityName=".Exercises"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.mwils.april.Nutrition" />
+        </activity>
+        <activity
             android:name=".NutritionMeals"
             android:label="NutritionMeals"
             android:parentActivityName=".Nutrition"
