@@ -28,4 +28,9 @@
     <string name="tab_text_4">Tab 4</string>
     <string name="title_activity_nutrition_meals">NutritionMeals</string>
     <string name="title_activity_nutrition_smoothies">NutritionSmoothies</string>
+    <string name="exercises">Exercises</string>
+    <string name="view_exercises_programme">Exercise Programme</string>
+    <string name="view_warmup">Warmup / Cooldown</string>
+    <string name="view_standing_exercises">Standing Exercises</string>
+    <string name="view_warning">Warning</string>
 </resources>

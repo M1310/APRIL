@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NutritionSick"></activity>
+        <activity android:name=".Exercises"></activity>
+        <activity android:name=".NutritionSick" />
         <activity
             android:name=".NutritionInformation"
             android:label="@string/title_activity_nutrition_information"

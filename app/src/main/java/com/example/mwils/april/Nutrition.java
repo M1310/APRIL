@@ -2,10 +2,7 @@ package com.example.mwils.april;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,11 +19,11 @@ public class Nutrition extends AppCompatActivity {
         setContentView(R.layout.activity_nutrition_main);
 
         //assigning the info variable to btnNutrInfo
-        info = (Button) findViewById(R.id.btnNutrInfo);
+        info = (Button) findViewById(R.id.btnExerProg);
         //assigning the illness variable to btnNutrIllness
-        illness = (Button) findViewById(R.id.btnNutrIllness);
+        illness = (Button) findViewById(R.id.btnExerWarmup);
         //assigning the meals variable to btnNutrMeals
-        meals = (Button) findViewById(R.id.btnNutrMeals);
+        meals = (Button) findViewById(R.id.btnExerStanding);
         //assigning the smoothies variable to btnNutrSmoothies
         smoothies = (Button) findViewById(R.id.btnNutrSmoothies);
 
