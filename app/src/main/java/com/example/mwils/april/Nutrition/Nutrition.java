@@ -1,4 +1,4 @@
-package com.example.mwils.april;
+package com.example.mwils.april.Nutrition;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.mwils.april.Nutrition.NutritionInformation.NutritionInformation;
+import com.example.mwils.april.Nutrition.NutritionMeals.NutritionMeals;
+import com.example.mwils.april.Nutrition.NutritionSmoothies.NutritionSmoothies;
+import com.example.mwils.april.R;
 
 public class Nutrition extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.mwils.april;
+package com.example.mwils.april.Nutrition.NutritionSmoothies;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

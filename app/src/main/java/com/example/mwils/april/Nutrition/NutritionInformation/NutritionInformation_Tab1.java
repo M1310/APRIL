@@ -1,4 +1,4 @@
-package com.example.mwils.april;
+package com.example.mwils.april.Nutrition.NutritionInformation;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,13 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ExerciseProgramme_Tab4 extends Fragment {
-    private static final String TAG = "Exercise_Programme_Tab4";
+import com.example.mwils.april.R;
+
+public class NutritionInformation_Tab1 extends Fragment {
+    private static final String TAG = "Nutrition_Info_Tab1";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.exercise_programme_tab4,container,false);
+        View view = inflater.inflate(R.layout.nutrition_information_tab1,container,false);
 
         return view;
     }
