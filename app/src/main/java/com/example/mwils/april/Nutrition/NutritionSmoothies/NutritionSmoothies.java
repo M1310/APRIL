@@ -1,4 +1,4 @@
-package com.example.mwils.april;
+package com.example.mwils.april.Nutrition.NutritionSmoothies;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -6,9 +6,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-public class ExerciseProgramme extends AppCompatActivity {
+import com.example.mwils.april.R;
+import com.example.mwils.april.SectionsPageAdapter;
 
-    private static final String TAG = "ExerciseProgramme";
+public class NutritionSmoothies extends AppCompatActivity {
+
+    private static final String TAG = "NutritionSmoothies";
 
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
@@ -32,12 +35,10 @@ public class ExerciseProgramme extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         //Calling the addFragment method to create a tab for each tab in the nutrition information section
-        adapter.addFragment(new ExerciseProgramme_Tab1(), "1");
-        adapter.addFragment(new ExerciseProgramme_Tab2(), "2");
-        adapter.addFragment(new ExerciseProgramme_Tab3(), "3");
-        adapter.addFragment(new ExerciseProgramme_Tab4(), "4");
-        adapter.addFragment(new ExerciseProgramme_Tab5(), "5");
-        adapter.addFragment(new ExerciseProgramme_Tab6(), "6");
+        adapter.addFragment(new NutritionSmoothies_Tab1(), "Recipe 1");
+        adapter.addFragment(new NutritionSmoothies_Tab2(), "Recipe 2");
+        adapter.addFragment(new NutritionSmoothies_Tab3(), "Recipe 3");
+        adapter.addFragment(new NutritionSmoothies_Tab4(), "Recipe 4");
         viewPager.setAdapter(adapter);
     }//end setupViewPager method
 

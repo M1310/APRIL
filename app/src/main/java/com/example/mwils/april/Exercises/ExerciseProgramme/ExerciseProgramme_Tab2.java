@@ -1,4 +1,4 @@
-package com.example.mwils.april;
+package com.example.mwils.april.Exercises.ExerciseProgramme;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.mwils.april.R;
 
 public class ExerciseProgramme_Tab2 extends Fragment {
     private static final String TAG = "Exercise_Programme_Tab2";

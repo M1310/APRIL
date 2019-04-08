@@ -11,46 +11,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Exercises"></activity>
-        <activity android:name=".NutritionSick" />
+        <activity android:name=".Exercises.Exercises"></activity>
+        <activity android:name=".Nutrition.NutritionSick" />
         <activity
-            android:name=".NutritionInformation"
+            android:name=".Nutrition.NutritionInformation.NutritionInformation"
             android:label="@string/title_activity_nutrition_information"
-            android:parentActivityName=".Nutrition"
+            android:parentActivityName=".Nutrition.Nutrition"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mwils.april.Nutrition" />
+                android:value="com.example.mwils.april.Nutrition.Nutrition" />
         </activity>
         <activity
-            android:name=".ExerciseProgramme"
+            android:name=".Exercises.ExerciseProgramme.ExerciseProgramme"
             android:label="@string/title_activity_exercise_programme"
-            android:parentActivityName=".Exercises"
+            android:parentActivityName=".Exercises.Exercises"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mwils.april.Nutrition" />
+                android:value="com.example.mwils.april.Nutrition.Nutrition" />
         </activity>
         <activity
-            android:name=".NutritionMeals"
+            android:name=".Nutrition.NutritionMeals.NutritionMeals"
             android:label="NutritionMeals"
-            android:parentActivityName=".Nutrition"
+            android:parentActivityName=".Nutrition.Nutrition"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mwils.april.Nutrition" />
+                android:value="com.example.mwils.april.Nutrition.Nutrition" />
         </activity>
         <activity
-            android:name=".NutritionSmoothies"
+            android:name=".Nutrition.NutritionSmoothies.NutritionSmoothies"
             android:label="NutritionSmoothies"
-            android:parentActivityName=".Nutrition"
+            android:parentActivityName=".Nutrition.Nutrition"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mwils.april.Nutrition" />
+                android:value="com.example.mwils.april.Nutrition.Nutrition" />
         </activity>
         <activity
-            android:name=".Nutrition"
+            android:name=".Nutrition.Nutrition"
             android:label="@string/title_activity_nutrition_main" />
         <activity android:name=".LoginPage">
             <intent-filter>
