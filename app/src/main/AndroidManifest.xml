@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".NutritionMeals"
-            android:label="@string/title_activity_nutrition_information"
+            android:label="@string/title_activity_nutrition_meals"
             android:parentActivityName=".Nutrition"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

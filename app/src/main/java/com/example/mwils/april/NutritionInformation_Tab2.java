@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class NutritionInformation_Tab2 extends Fragment {
-    private static final String TAG = "Nutrition_Tab2";
+    private static final String TAG = "Nutrition_Info_Tab2";
 
     @Nullable
     @Override
