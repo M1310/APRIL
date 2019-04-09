@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.mwils.april.Nutrition.Nutrition;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,12 +34,11 @@ public class LoginPage extends AppCompatActivity {
     private EditText userName, userPassword;
     //Initialising login button
     private Button btnLogin;
-    //Initialising logo variable
-    private ImageView imgLogo;
+    //Initialising Reset Password link
+    private TextView tvReset;
     //Creating instance of Firebase authenticator
     private FirebaseAuth auth;
-    //Creating variable for FirebaseStorage
-    private FirebaseStorage storage = FirebaseStorage.getInstance();
+
 
     /**
      * Creates instance of LoginPage
@@ -70,6 +71,13 @@ public class LoginPage extends AppCompatActivity {
             }//end onClick
         });//end btnLogin onClickListener
 
+        //navigating the user to the Password Reset page
+        tvReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginPage.this, ForgotPassword.class));
+            }//end onClick method
+        });//end onClickListener
 
 
 
@@ -104,7 +112,7 @@ public class LoginPage extends AppCompatActivity {
         userName = findViewById(R.id.ptUsername);
         userPassword = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnLogin);
-        imgLogo = findViewById(R.id.logo);
+        tvReset = findViewById(R.id.tvForgotPass);
 
     }//end method setupFields
 
