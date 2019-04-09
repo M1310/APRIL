@@ -38,4 +38,8 @@
     <string name="standing">Standing Exercises</string>
     <string name="exercise_warning">Is there any time I should not exercise?</string>
     <string name="admin">Admin</string>
+    <string name="password_reset_text">Please enter your username.</string>
+    <string name="Email">E-mail Address</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="forgot_pass"><u>Forgot Your Password?</u></string>
 </resources>
