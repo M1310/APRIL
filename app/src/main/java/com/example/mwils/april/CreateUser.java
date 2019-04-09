@@ -9,10 +9,18 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.bumptech.glide.signature.ObjectKey;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class CreateUser extends AppCompatActivity {
 
@@ -23,6 +31,12 @@ public class CreateUser extends AppCompatActivity {
     //initialising a variable for firebase auth
     private FirebaseAuth auth;
 
+    //initialising a variable for firestore database
+    private FirebaseFirestore db;
+
+
+    //initialising a variable for Firestore Collection reference
+    private CollectionReference colref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +44,9 @@ public class CreateUser extends AppCompatActivity {
 
         //creating an instance of Firebase Auth
         auth = FirebaseAuth.getInstance();
+
+        //creating an instance of Firebase Database
+        db = FirebaseFirestore.getInstance();
 
         //Assiging the variables to the text fields in the activity
         email = findViewById(R.id.etNewEmail);
@@ -62,13 +79,19 @@ public class CreateUser extends AppCompatActivity {
                                 else {
                                     //if the creation was successful, let the user know, and add them to the users database
                                     //also resets the fields in case the user wanted to make another user
+                                    boolean newadmin = admin.isChecked();
                                     email.setText("");
                                     password.setText("");
                                     confirm.setText("");
                                     admin.setChecked(false);
                                     Toast.makeText(CreateUser.this,"User Creation Successful!", Toast.LENGTH_SHORT).show();
-                                    String uid = task.getResult().getUser().getUid();
 
+                                    //Creating a map object to hold the admin toggle for the user
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("isAdmin", newadmin);
+                                    //
+                                    String uid = task.getResult().getUser().getUid();
+                                    db.collection("Users").document(uid).set(user);
                                 }//end else statement
                             }//end onComplete method
                         });//end onCompleteListener

@@ -21,6 +21,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firestore.v1.StructuredQuery;
 
+import java.sql.SQLOutput;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button logout; Button exercises; Button nutrition; Button admin;
 
     //creating variable to hold the results of the isAdmin check
-    private Boolean isAdmin = false;
+    private boolean isAdmin = false;
 
 
     @Override
@@ -39,12 +41,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //creates an instance of the Firebase authentication class
         auth = FirebaseAuth.getInstance();
         //Retrieves the current User's ID to check if they have admin rights
         String uid = auth.getUid();
         //Attempting to check if user is admin
-        //First gettting an instance of the Firestore Database tied to this project
+        //First getting an instance of the Firestore Database tied to this project
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         //Looking for the Collection within that Database that contains all the Users
         CollectionReference colref = database.collection("Users");
@@ -60,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
                         //if it successfully pulls down the document
                         //it sets the boolean to the same value as the database
                         if (documentSnapshot.exists()){
+                            System.out.println("got here 1");
                             isAdmin = documentSnapshot.getBoolean("isAdmin");
+                            System.out.println("I hate this"+isAdmin);
                         }//end if statement
                     }//end onSuccess method
                 })//end onSuccessListener
@@ -71,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     }//end exceoption
                 });//end onFailureListener
 
-        //assignsing the logout variable to btnLogOut
+        //assigning the logout variable to btnLogOut
         logout = (Button)findViewById(R.id.btnLogOut);
         //assigning the exercises variable to btnExercises
         exercises = (Button)findViewById(R.id.btnExercises);
@@ -79,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         nutrition = (Button)findViewById(R.id.btnNutrition);
         //assigning the admin variable to btnAdmin
         admin = (Button)findViewById(R.id.btnAdmin);
+        admin.setVisibility(View.INVISIBLE);
 
         //logging the user out when the button is clicked
         logout.setOnClickListener(new View.OnClickListener() {
@@ -111,8 +117,10 @@ public class MainActivity extends AppCompatActivity {
         //hiding the admin settings button
         //will display if the user is a
         //verified admin user
-        admin.setVisibility(View.GONE);
-        if(isAdmin = true) {
+
+
+        System.out.println("got here 2"+isAdmin);
+        if(isAdmin) {
             admin.setVisibility(View.VISIBLE);
             //setting onClick in here so that users don't trigger
             //an 'invisible button'. this way they can still accidentally press
