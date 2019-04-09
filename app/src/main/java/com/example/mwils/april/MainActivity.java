@@ -55,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
         //out how to properly call .getuid() without crashing the app
         DocumentReference docRef = colref.document(uid);
 
+        //assigning the logout variable to btnLogOut
+        logout = findViewById(R.id.btnLogOut);
+        //assigning the exercises variable to btnExercises
+        exercises = findViewById(R.id.btnExercises);
+        //assigning the nutrition variable to btnNutrition
+        nutrition = findViewById(R.id.btnNutrition);
+        //assigning the admin variable to btnAdmin
+        admin = findViewById(R.id.btnAdmin);
+
         //calls the record down from the Database
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -65,7 +74,21 @@ public class MainActivity extends AppCompatActivity {
                         if (documentSnapshot.exists()){
                             System.out.println("got here 1");
                             isAdmin = documentSnapshot.getBoolean("isAdmin");
-                            System.out.println("I hate this"+isAdmin);
+
+                            if(isAdmin) {
+                                admin.setVisibility(View.VISIBLE);
+                                //setting onClick in here so that users don't trigger
+                                //an 'invisible button'. this way they can still accidentally press
+                                //it, but they won't even know
+                                admin.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        startActivity(new Intent(MainActivity.this, Admin.class));
+                                    }//end onClick method
+                                });//end onClickListener
+                            }else{
+                                admin.setVisibility(View.INVISIBLE);
+                            }//end else statement
                         }//end if statement
                     }//end onSuccess method
                 })//end onSuccessListener
@@ -73,18 +96,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         System.out.println("Failed to get doc: "+e);
-                    }//end exceoption
+                    }//end exception
                 });//end onFailureListener
 
-        //assigning the logout variable to btnLogOut
-        logout = (Button)findViewById(R.id.btnLogOut);
-        //assigning the exercises variable to btnExercises
-        exercises = (Button)findViewById(R.id.btnExercises);
-        //asigning the nutrition variable to btnNutrition
-        nutrition = (Button)findViewById(R.id.btnNutrition);
-        //assigning the admin variable to btnAdmin
-        admin = (Button)findViewById(R.id.btnAdmin);
-        admin.setVisibility(View.INVISIBLE);
 
         //logging the user out when the button is clicked
         logout.setOnClickListener(new View.OnClickListener() {
@@ -119,19 +133,7 @@ public class MainActivity extends AppCompatActivity {
         //verified admin user
 
 
-        System.out.println("got here 2"+isAdmin);
-        if(isAdmin) {
-            admin.setVisibility(View.VISIBLE);
-            //setting onClick in here so that users don't trigger
-            //an 'invisible button'. this way they can still accidentally press
-            //it, but they won't even know
-            admin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this, Admin.class));
-                }//end onClick method
-            });//end onClickListener
-        }//end if statement
+
 
     }//end onCreate method
 }//end class

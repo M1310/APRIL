@@ -123,7 +123,7 @@ public class LoginPage extends AppCompatActivity {
                    startActivity(new Intent(LoginPage.this, MainActivity.class));
                }else{
                    //if authentication fails, display message informing user
-                   Toast.makeText(LoginPage.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(LoginPage.this, "Login Unsuccessful: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                }//end if else statment
             }//end onCompleteListener
         });//end createUser
