@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mwils.april">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,19 +11,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPassword"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".CreateUser" />
+        <activity android:name=".ForgotPassword" />
         <activity android:name=".Admin" />
-        <activity android:name=".Exercises.ExerciseWarmup.ExercisesWarmupStanding" />
-        <activity android:name=".Exercises.ExerciseWarmup.ExercisesWarmup" />
-        <activity android:name=".Exercises.Exercises" />
-        <activity android:name=".Exercises.ExercisesWarning" />
-        <activity android:name=".Nutrition.NutritionSick" />
+        <activity android:name=".Exercises.ExerciseWarmup.ExercisesWarmup"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Exercises.Exercises"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Exercises.ExercisesWarning"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Nutrition.NutritionSick"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Nutrition.NutritionInformation.NutritionInformation"
             android:label="@string/title_activity_nutrition_information"
             android:parentActivityName=".Nutrition.Nutrition"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator,UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.mwils.april.Nutrition.Nutrition" />
@@ -31,7 +38,8 @@
             android:name=".Exercises.ExerciseProgramme.ExerciseProgramme"
             android:label="@string/title_activity_exercise_programme"
             android:parentActivityName=".Exercises.Exercises"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator,UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.mwils.april.Nutrition.Nutrition" />
@@ -40,7 +48,8 @@
             android:name=".Nutrition.NutritionMeals.NutritionMeals"
             android:label="NutritionMeals"
             android:parentActivityName=".Nutrition.Nutrition"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator,UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.mwils.april.Nutrition.Nutrition" />
@@ -49,14 +58,16 @@
             android:name=".Nutrition.NutritionSmoothies.NutritionSmoothies"
             android:label="NutritionSmoothies"
             android:parentActivityName=".Nutrition.Nutrition"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator,UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.mwils.april.Nutrition.Nutrition" />
         </activity>
         <activity
             android:name=".Nutrition.Nutrition"
-            android:label="@string/title_activity_nutrition_main" />
+            android:label="@string/title_activity_nutrition_main"
+            tools:ignore="InnerclassSeparator" />
         <activity android:name=".LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
