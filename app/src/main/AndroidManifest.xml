@@ -12,8 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Admin"></activity>
-        <activity android:name=".Exercises.ExercisesStanding" />
-        <activity android:name=".Exercises.ExercisesWarmup" />
+        <activity android:name=".Exercises.ExerciseWarmup.ExercisesWarmupStanding" />
+        <activity android:name=".Exercises.ExerciseWarmup.ExercisesWarmup" />
         <activity android:name=".Exercises.Exercises" />
         <activity android:name=".Exercises.ExercisesWarning" />
         <activity android:name=".Nutrition.NutritionSick" />

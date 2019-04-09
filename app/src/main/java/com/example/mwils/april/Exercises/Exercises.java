@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.mwils.april.Exercises.ExerciseProgramme.ExerciseProgramme;
+import com.example.mwils.april.Exercises.ExerciseWarmup.ExercisesWarmup;
 import com.example.mwils.april.R;
 
 public class Exercises extends AppCompatActivity {
@@ -22,8 +23,6 @@ public class Exercises extends AppCompatActivity {
         programme = (Button) findViewById(R.id.btnExerProg);
         //assigning the warmup variable to btnExerWarmup
         warmup = (Button) findViewById(R.id.btnExerWarmup);
-        //assigning the standing variable to btnExerStanding
-        standing = (Button) findViewById(R.id.btnExerStanding);
         //assing the warning varible to btnExerWarning
         warning = (Button) findViewById(R.id.btnExerWarning);
 
@@ -40,14 +39,6 @@ public class Exercises extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Exercises.this, ExercisesWarmup.class));
-            }//end onClick method
-        });//end OnClickListener
-
-        //navigating the user to the Standing Exercises page
-        standing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Exercises.this, ExercisesStanding.class));
             }//end onClick method
         });//end OnClickListener
 
