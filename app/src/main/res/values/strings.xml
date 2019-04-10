@@ -48,4 +48,6 @@
     <string name="please_confirm_password">Please confirm password</string>
     <string name="admin_user">Admin User</string>
     <string name="welcome_to_the_admin_page">Welcome to the Admin page!</string>
+    <string name="temp">Temp Text</string>
+    <string name="diagram">Diagram of Exercise</string>
 </resources>
