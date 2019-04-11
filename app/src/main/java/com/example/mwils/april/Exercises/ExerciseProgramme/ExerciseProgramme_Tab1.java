@@ -94,26 +94,26 @@ public class ExerciseProgramme_Tab1 extends Fragment {
                         description = description .replaceAll("]","");
                         url = documentSnapshot.get("Diagram").toString();
 
-                        }//end on Success
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getActivity(), "Failed to retrieve data " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }//end onFailure
-                                }).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                        //Once the data has been retrieved
-                                        //it is entered into the elements on the page
-                                        tabtitle.setText(title);
-                                        exDescription.setText(description);
-                                        //Using Glide to load the image from the Firebase storage
-                                        //URL directly into the ImageView
-                                        Glide.with(getView())
-                                                .load(url)
-                                                .into(diagram);
-                                    }//end onComplete
-                                    });//end onCompleteListener
+                }//end on Success
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                 Toast.makeText(getActivity(), "Failed to retrieve data " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }//end onFailure
+        }).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                //Once the data has been retrieved
+                //it is entered into the elements on the page
+                tabtitle.setText(title);
+                exDescription.setText(description);
+                //Using Glide to load the image from the Firebase storage
+                //URL directly into the ImageView
+                Glide.with(getView())
+                        .load(url)
+                        .into(diagram);
+            }//end onComplete
+        });//end onCompleteListener
 
 
     }//end getData
