@@ -50,4 +50,6 @@
     <string name="welcome_to_the_admin_page">Welcome to the Admin page!</string>
     <string name="temp">Loading…</string>
     <string name="diagram">Diagram of Exercise</string>
+    <string name="clipart">ClipArt of Nutritional Information</string>
+    <string name="Nutrition_Information">Nutrition Information</string>
 </resources>
