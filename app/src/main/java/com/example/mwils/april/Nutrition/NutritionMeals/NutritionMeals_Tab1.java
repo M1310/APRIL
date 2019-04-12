@@ -29,7 +29,7 @@ public class NutritionMeals_Tab1 extends Fragment {
     TextView tv1, tv2, tv3, tv4;
     ImageView diagram;
     //Creating String variables to hold the data from the DB
-    String description;
+    String description, url;
 
 
     @Nullable
@@ -98,6 +98,7 @@ public class NutritionMeals_Tab1 extends Fragment {
                 //Calling methods to format and display
                 //the info that's been called down
                 formatText(description);
+               // formatDiagram(url);
             }//end onComplete
         });//end onCompleteListener
     }//end getData
@@ -122,6 +123,16 @@ public class NutritionMeals_Tab1 extends Fragment {
         tv4.setText(formatText[3]);
     }//end formatTitles
 
+    /**
+     * This method uses Glide to load the image from the URL
+     * into the ImageView on the page
+     * @param url - contains the download URL for the diagram
+     */
+    private void formatDiagram(String url){
+        Glide.with(getView())
+                .load(url)
+                .into(diagram);
+    }//end formatDiagram
 
 }//end Class
 
