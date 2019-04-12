@@ -5,9 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 
+import com.crashlytics.android.Crashlytics;
 import com.example.mwils.april.Exercises.Exercises;
 import com.example.mwils.april.Nutrition.Nutrition;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 
         //creates an instance of the Firebase authentication class
@@ -105,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 //redirects the user back to the login page
                 startActivity(new Intent(MainActivity.this, LoginPage.class));
+
+
+
+
             }//end onClick method
         });//end onClickListener
 
