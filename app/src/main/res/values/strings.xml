@@ -42,4 +42,14 @@
     <string name="Email">E-mail Address</string>
     <string name="reset_password">Reset Password</string>
     <string name="forgot_pass"><u>Forgot Your Password?</u></string>
+    <string name="create_user">Create User</string>
+    <string name="e_mail_address">E-mail Address</string>
+    <string name="please_enter_password">Please enter password</string>
+    <string name="please_confirm_password">Please confirm password</string>
+    <string name="admin_user">Admin User</string>
+    <string name="welcome_to_the_admin_page">Welcome to the Admin page!</string>
+    <string name="temp">Loading…</string>
+    <string name="diagram">Diagram of Exercise</string>
+    <string name="clipart">ClipArt of Nutritional Information</string>
+    <string name="Nutrition_Information">Nutrition Information</string>
 </resources>

@@ -10,10 +10,24 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="196dp"
-        android:layout_height="105dp"
+        android:layout_height="0dp"
         android:layout_marginTop="96dp"
-        android:text="Welcome to the Admin page!"
+        android:layout_marginBottom="64dp"
+        android:text="@string/welcome_to_the_admin_page"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCreateUser"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="418dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/create_user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 </android.support.constraint.ConstraintLayout>

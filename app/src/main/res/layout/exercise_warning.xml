@@ -8,18 +8,154 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvWarningTitle"
         android:layout_width="365dp"
-        android:layout_height="160dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="@string/exercise_warning"
         android:textColor="@android:color/white"
         android:textSize="16pt"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvWarning1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.652"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.025" />
+
+    <TextView
+        android:id="@+id/tvWarning1"
+        android:layout_width="356dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginBottom="444dp"
+        android:gravity="start"
+        android:text="@string/temp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvWarning2"
+        android:layout_width="356dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="472dp"
+        android:gravity="start"
+        android:text="@string/temp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWarning1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvWarning3"
+        android:layout_width="356dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="400dp"
+        android:gravity="start"
+        android:text="@string/temp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWarning2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvWarning4"
+        android:layout_width="356dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="324dp"
+        android:gravity="start"
+        android:text="@string/temp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWarning3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvWarning5"
+        android:layout_width="356dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="256dp"
+        android:gravity="start"
+        android:text="@string/temp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWarning4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvWarning6"
+        android:layout_width="356dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="188dp"
+        android:gravity="start"
+        android:text="@string/temp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWarning5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvWarning7"
+        android:layout_width="282dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="124dp"
+        android:gravity="start"
+        android:text="@string/temp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWarning6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvWarning8"
+        android:layout_width="356dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="56dp"
+        android:gravity="start"
+        android:text="@string/temp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWarning7"
+        app:layout_constraintVertical_bias="0.0" />
+
 </android.support.constraint.ConstraintLayout>

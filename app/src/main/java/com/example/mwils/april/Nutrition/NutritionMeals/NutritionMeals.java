@@ -11,7 +11,7 @@ import com.example.mwils.april.SectionsPageAdapter;
 
 public class NutritionMeals extends AppCompatActivity {
 
-    private static final String TAG = "NutritionInformation";
+
 
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
@@ -20,7 +20,7 @@ public class NutritionMeals extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_information);
-        Log.d(TAG, "onCreate: Starting.");
+
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 

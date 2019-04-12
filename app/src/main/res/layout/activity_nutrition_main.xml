@@ -9,7 +9,7 @@
     tools:context=".Nutrition.Nutrition">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvWarningTitle"
         android:layout_width="214dp"
         android:layout_height="61dp"
         android:gravity="center"
@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvWarningTitle" />
 
     <Button
         android:id="@+id/btnExerWarmup"

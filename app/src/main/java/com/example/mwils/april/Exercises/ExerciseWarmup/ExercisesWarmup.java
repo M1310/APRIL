@@ -23,7 +23,7 @@ public class ExercisesWarmup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nutrition_information);
+        setContentView(R.layout.activity_exercises_warmup);
         Log.d(TAG, "onCreate: Starting.");
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());

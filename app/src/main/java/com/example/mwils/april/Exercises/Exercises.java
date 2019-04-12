@@ -12,20 +12,37 @@ import com.example.mwils.april.R;
 
 public class Exercises extends AppCompatActivity {
 
-    private Button programme; Button warmup; Button standing; Button warning;
+    private Button programme, warmup, warning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_main);
 
-        //assigning the programme variable to btnExerProg
-        programme = (Button) findViewById(R.id.btnExerProg);
-        //assigning the warmup variable to btnExerWarmup
-        warmup = (Button) findViewById(R.id.btnExerWarmup);
-        //assing the warning varible to btnExerWarning
-        warning = (Button) findViewById(R.id.btnExerWarning);
+       setUpFields();
+       setUpOnClicks();
 
+
+    }//end onCreate method
+
+    /*
+    This method simply assigns the button elements on the page
+    to variables to be used for onclick events
+     */
+    private void setUpFields(){
+        //assigning the programme variable to btnExerProg
+        programme = findViewById(R.id.btnExerProg);
+        //assigning the warmup variable to btnExerWarmup
+        warmup = findViewById(R.id.btnExerWarmup);
+        //assigning the warning variable to btnExerWarning
+        warning = findViewById(R.id.btnExerWarning);
+    }//end setUpFields
+
+    /*
+    This method sets all the onClick events for each
+    button to enable user navigation
+     */
+    private void setUpOnClicks(){
         //navigating the user to the Exercise Programme page
         programme.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,13 +59,12 @@ public class Exercises extends AppCompatActivity {
             }//end onClick method
         });//end OnClickListener
 
-        //displaying the exercise warning pop-up box when the warning button is clicked
+        //displaying the exercise warning page when the warning button is clicked
         warning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Exercises.this, ExercisesWarning.class));
             }//end onClick method
         });//end OnClickListener
-
-    }//end onCreate method
+    }//end setUpOnClicks
 }//end class
