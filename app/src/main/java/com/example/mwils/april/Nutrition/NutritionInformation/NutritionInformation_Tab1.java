@@ -58,7 +58,6 @@ public class NutritionInformation_Tab1 extends Fragment {
      */
     public void setUpFields() {
         tv1 = getView().findViewById(R.id.tv1NutInfo1);
-        System.out.println("CHECK HERE "+tv1);
         tv2 = getView().findViewById(R.id.tv2NutInfo1);
         tv3 = getView().findViewById(R.id.tv3NutInfo1);
         tv4 = getView().findViewById(R.id.tv4NutInfo1);
@@ -132,7 +131,7 @@ public class NutritionInformation_Tab1 extends Fragment {
     /**
      * This method uses Glide to load the image from the URL
      * into the ImageView on the page
-     * @param url
+     * @param url - contains the download URL for the diagram
      */
     private void formatDiagram(String url){
         Glide.with(getView())
