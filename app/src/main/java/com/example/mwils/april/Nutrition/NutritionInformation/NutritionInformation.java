@@ -12,8 +12,6 @@ import com.example.mwils.april.SectionsPageAdapter;
 
 public class NutritionInformation extends AppCompatActivity {
 
-    private static final String TAG = "NutritionInformation";
-
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
 
@@ -36,9 +34,9 @@ public class NutritionInformation extends AppCompatActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         //Calling the addFragment method to create a tab for each tab in the nutrition information section
         adapter.addFragment(new NutritionInformation_Tab1(), "Carbs");
-        adapter.addFragment(new NutritionInformation_Tab2(), "Protein");
-        adapter.addFragment(new NutritionInformation_Tab3(), "Fat");
-        adapter.addFragment(new NutritionInformation_Tab4(), "Fluid");
+        adapter.addFragment(new NutritionInformation_Tab2(), "Fat");
+        adapter.addFragment(new NutritionInformation_Tab3(), "Fluid");
+        adapter.addFragment(new NutritionInformation_Tab4(), "Protein");
         viewPager.setAdapter(adapter);
     }//end setupViewPager method
 
