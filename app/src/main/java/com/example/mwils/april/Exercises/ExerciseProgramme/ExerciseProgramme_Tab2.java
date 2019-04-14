@@ -25,14 +25,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ExerciseProgramme_Tab2 extends Fragment {
 
-
     //Creating variables to hold information
     //for all the elements on the activity
     TextView tabtitle, exDescription;
     ImageView diagram;
     //Creating String variables to hold the data from the DB
     String title,  description, url;
-
 
     @Nullable
     @Override
@@ -53,25 +51,21 @@ public class ExerciseProgramme_Tab2 extends Fragment {
         setData();
     }//end onStart
 
-    /*
+    /**
     This method assigns the variables to the various elements
     in the layout file.
-     */
+     **/
     public void setUpFields() {
-
         tabtitle = getView().findViewById(R.id.tvEx2Title);
         exDescription = getActivity().findViewById(R.id.tvEx2Description);
         diagram = getActivity().findViewById(R.id.ivExcerise2Diagram);
-
-
     }//end setUpFields
 
-    /*
+    /**
     This method gathers the data from the Firestore and
     enters it into the various elements on the tab.
-     */
+     **/
     public void setData() {
-
         //First getting an instance of the Firestore Database tied to this project
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         //Looking for the Collection within that Database that contains all the Exercises
@@ -84,17 +78,14 @@ public class ExerciseProgramme_Tab2 extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         //Assigning the information from the database
                         //to the initialised Strings
                         title = documentSnapshot.get("Name").toString();
                         description = documentSnapshot.get("Description").toString();
                         //formatting the String array into individual lines within a single String
                         description = description.replaceAll(",", "\n");
-                        description = description .replaceAll("]","");
-                        System.out.println("HERE "+description);
+                        description = description .replaceAll("[\\[\\]]","");
                         url = documentSnapshot.get("Diagram").toString();
-
                     }//end on Success
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -115,8 +106,6 @@ public class ExerciseProgramme_Tab2 extends Fragment {
                         .into(diagram);
             }//end onComplete
         });//end onCompleteListener
-
-
     }//end getData
 
 }//end Class

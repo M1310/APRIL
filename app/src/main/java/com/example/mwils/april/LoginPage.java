@@ -30,11 +30,6 @@ public class LoginPage extends AppCompatActivity {
     //Creating instance of Firebase authenticator
     private FirebaseAuth auth;
 
-
-    /**
-     * Creates instance of LoginPage
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,47 +37,18 @@ public class LoginPage extends AppCompatActivity {
 
         //assigns the fields to variables that'll be passed through
         setupFields();
-
-        //Calling instance inside onCreate method
-        auth = FirebaseAuth.getInstance();
-
-        //Checking if User has already logged in
-        FirebaseUser user = auth.getCurrentUser();
-        if (user!= null){
-            //finish method that resets the current activities state
-            finish();
-            //if the user has already logged in, send them to the main page
-            startActivity(new Intent(LoginPage.this, MainActivity.class));
-        }//end if statement
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-               login();
-            }//end onClick
-        });//end btnLogin onClickListener
-
-        //navigating the user to the Password Reset page
-        tvReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginPage.this, ForgotPassword.class));
-            }//end onClick method
-        });//end onClickListener
-
-
-
-
+        setUpOnClicks();
     }//end method onCreate
 
     /**
      * Method used to check if either login fields are empty, and then calls method to validate credentials
-     * @return
      */
     private void login(){
+        //Calling instance inside onCreate method
+        auth = FirebaseAuth.getInstance();
 
         //Gathering text from login fields
-        String name = userName.getText().toString();
+        String name = userName.getText().toString().trim();
         String password = userPassword.getText().toString();
 
         //If statement to check if either are empty
@@ -108,9 +74,28 @@ public class LoginPage extends AppCompatActivity {
     }//end method setupFields
 
     /**
+     * Sets up on the onClick events for the button on the page
+     */
+    private void setUpOnClicks(){
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                login();
+            }//end onClick
+        });//end btnLogin onClickListener
+        //navigating the user to the Password Reset page
+        tvReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginPage.this, ForgotPassword.class));
+            }//end onClick method
+        });//end onClickListener
+    }//end setUpOnClicks
+
+    /**
      * Method to validate login details and log into application
-     * @param userName
-     * @param password
+     * @param userName - the user's username (typically an email)
+     * @param password - the user's password
      */
     private void validate(String userName, String password){
         //takes the user credentials and checks them against the Database

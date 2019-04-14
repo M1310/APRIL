@@ -41,11 +41,12 @@ public class ExerciseProgramme_Tab5 extends Fragment {
 
         return view;
     }//end onCreate
-    /*
+
+    /**
     onStart runs after onCreateView
     allowing me to assign elements to variables without
     getting a Null Pointer exception
-     */
+    **/
     @Override
     public void onStart() {
         super.onStart();
@@ -53,25 +54,21 @@ public class ExerciseProgramme_Tab5 extends Fragment {
         setData();
     }//end onStart
 
-    /*
+    /**
     This method assigns the variables to the various elements
     in the layout file.
-     */
+    **/
     public void setUpFields() {
-
         tabtitle = getView().findViewById(R.id.tvEx5Title);
         exDescription = getActivity().findViewById(R.id.tvEx5Description);
         diagram = getActivity().findViewById(R.id.ivExcerise5Diagram);
-
-
     }//end setUpFields
 
-    /*
+    /**
     This method gathers the data from the Firestore and
     enters it into the various elements on the tab.
-     */
+     **/
     public void setData() {
-
         //First getting an instance of the Firestore Database tied to this project
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         //Looking for the Collection within that Database that contains all the Exercises
@@ -84,16 +81,14 @@ public class ExerciseProgramme_Tab5 extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         //Assigning the information from the database
                         //to the initialised Strings
                         title = documentSnapshot.get("Name").toString();
                         description = documentSnapshot.get("Description").toString();
                         //formatting the String array into individual lines within a single String
                         description = description.replaceAll(",", "\n");
-                        description = description .replaceAll("]","");
+                        description = description .replaceAll("[\\[\\]]","");
                         url = documentSnapshot.get("Diagram").toString();
-
                     }//end on Success
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -114,8 +109,6 @@ public class ExerciseProgramme_Tab5 extends Fragment {
                         .into(diagram);
             }//end onComplete
         });//end onCompleteListener
-
-
     }//end getData
 
 }//end Class

@@ -42,13 +42,17 @@ public class CreateUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
 
-        //creating an instance of Firebase Auth
-        auth = FirebaseAuth.getInstance();
+        setUpFields();
+        setUpOnClick();
+    }//end onCreate
 
-        //creating an instance of Firebase Database
-        db = FirebaseFirestore.getInstance();
-
-        //Assiging the variables to the text fields in the activity
+    /**
+     * This nethod assigns the EditText elements on the page to variables
+     * to be used in the creation of a new user account. It also assigns a variable
+     * to the actual create user button to be used in the onClick event.
+     */
+    private void setUpFields(){
+        //Assigning the variables to the text fields in the activity
         email = findViewById(R.id.etNewEmail);
         password = findViewById(R.id.etPassword);
         confirm = findViewById(R.id.etPasswordConfirm);
@@ -56,52 +60,26 @@ public class CreateUser extends AppCompatActivity {
 
         //Assigning btnCreateUser to the button in the activity
         btnCreateUser = findViewById(R.id.btnConfirmCreate);
+    }//end setUpFields
 
+    /**
+     * This method sets up the onClick event for the Create User button
+     * This button only calls the createUser() method
+     */
+    private void setUpOnClick(){
         //Setting onClickListener to create the new user
         btnCreateUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //checks that the fields have been populated
-                if(validate()){
-                    //extracting the Strings from the EditText fields
-                    String newEmail = email.getText().toString().trim();
-                    String newPass = password.getText().toString();
-
-                    //Calls the instance of Firebase auth and creates the user
-                    auth.createUserWithEmailAndPassword(newEmail,newPass)
-                        .addOnCompleteListener(CreateUser.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                //lets the user know if the creation failed
-                                if(!task.isSuccessful()){
-                                    Toast.makeText(CreateUser.this, "User Creation failed: "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                                }//end if statement
-                                else {
-                                    //if the creation was successful, let the user know, and add them to the users database
-                                    //also resets the fields in case the user wanted to make another user
-                                    boolean newadmin = admin.isChecked();
-                                    email.setText("");
-                                    password.setText("");
-                                    confirm.setText("");
-                                    admin.setChecked(false);
-                                    Toast.makeText(CreateUser.this,"User Creation Successful!", Toast.LENGTH_SHORT).show();
-
-                                    //Creating a map object to hold the admin toggle for the user
-                                    Map<String, Object> user = new HashMap<>();
-                                    user.put("isAdmin", newadmin);
-                                    //
-                                    String uid = task.getResult().getUser().getUid();
-                                    db.collection("Users").document(uid).set(user);
-                                }//end else statement
-                            }//end onComplete method
-                        });//end onCompleteListener
-                }//end if statement
+                createUser();
             }//end onClick method
         });//end onClickListener method
-    }//end onCreate
+    }//end setUpOnClick
 
-    //This method checks that all the fields have been entered
-    //It'll also check that the password and the confirmation are the same
+    /**
+     * This method checks that all the fields have been entered
+     * It'll also check that the password and the confirmation are the same
+     */
     private Boolean validate(){
         boolean result = false;
 
@@ -124,6 +102,54 @@ public class CreateUser extends AppCompatActivity {
         }//end nestes else statement
 
         return result;
-
     }//end validate method
+
+    /**
+     * This method opens a connnection to the authentication database and creates a new user
+     * Once the user has been added, it then takes the User ID and adds that to
+     * the User database, while also marking them as an Admin user if the checkbox
+     * has been ticked
+     */
+    private void createUser(){
+        //creating an instance of Firebase Auth
+        auth = FirebaseAuth.getInstance();
+
+        //creating an instance of Firebase Database
+        db = FirebaseFirestore.getInstance();
+        //checks that the fields have been populated
+        if(validate()){
+            //extracting the Strings from the EditText fields
+            String newEmail = email.getText().toString().trim();
+            String newPass = password.getText().toString();
+
+            //Calls the instance of Firebase auth and creates the user
+            auth.createUserWithEmailAndPassword(newEmail,newPass)
+                    .addOnCompleteListener(CreateUser.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            //lets the user know if the creation failed
+                            if(!task.isSuccessful()){
+                                Toast.makeText(CreateUser.this, "User Creation failed: "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            }//end if statement
+                            else {
+                                //if the creation was successful, let the user know, and add them to the users database
+                                //also resets the fields in case the user wanted to make another user
+                                boolean newadmin = admin.isChecked();
+                                email.setText("");
+                                password.setText("");
+                                confirm.setText("");
+                                admin.setChecked(false);
+                                Toast.makeText(CreateUser.this,"User Creation Successful!", Toast.LENGTH_SHORT).show();
+
+                                //Creating a map object to hold the admin toggle for the user
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("isAdmin", newadmin);
+                                //
+                                String uid = task.getResult().getUser().getUid();
+                                db.collection("Users").document(uid).set(user);
+                            }//end else statement
+                        }//end onComplete method
+                    });//end onCompleteListener
+        }//end if statement
+    }//end createUser
 }//end Class

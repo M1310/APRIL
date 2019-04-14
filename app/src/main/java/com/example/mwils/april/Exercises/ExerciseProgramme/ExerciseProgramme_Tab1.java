@@ -25,14 +25,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ExerciseProgramme_Tab1 extends Fragment {
 
-
     //Creating variables to hold information
     //for all the elements on the activity
     TextView tabtitle, exDescription;
     ImageView diagram;
     //Creating String variables to hold the data from the DB
     String title,  description, url;
-
 
     @Nullable
     @Override
@@ -41,11 +39,12 @@ public class ExerciseProgramme_Tab1 extends Fragment {
 
         return view;
     }//end onCreate
-    /*
+
+    /**
     onStart runs after onCreateView
     allowing me to assign elements to variables without
     getting a Null Pointer exception
-     */
+    **/
     @Override
     public void onStart() {
         super.onStart();
@@ -58,20 +57,16 @@ public class ExerciseProgramme_Tab1 extends Fragment {
     in the layout file.
      */
     public void setUpFields() {
-
         tabtitle = getView().findViewById(R.id.tvEx1Title);
         exDescription = getActivity().findViewById(R.id.tvEx1Description);
         diagram = getActivity().findViewById(R.id.ivExcerise1Diagram);
-
-
     }//end setUpFields
 
-    /*
+    /**
     This method gathers the data from the Firestore and
     enters it into the various elements on the tab.
-     */
+     **/
     public void setData() {
-
         //First getting an instance of the Firestore Database tied to this project
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         //Looking for the Collection within that Database that contains all the Exercises
@@ -84,14 +79,13 @@ public class ExerciseProgramme_Tab1 extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         //Assigning the information from the database
                         //to the initialised Strings
                         title = documentSnapshot.get("Name").toString();
                         description = documentSnapshot.get("Description").toString();
                         //formatting the String array into individual lines within a single String
                         description = description.replaceAll(",", "\n");
-                        description = description .replaceAll("]","");
+                        description = description .replaceAll("[\\[\\]]","");
                         url = documentSnapshot.get("Diagram").toString();
 
                 }//end on Success
@@ -114,8 +108,6 @@ public class ExerciseProgramme_Tab1 extends Fragment {
                         .into(diagram);
             }//end onComplete
         });//end onCompleteListener
-
-
     }//end getData
 
 }//end Class

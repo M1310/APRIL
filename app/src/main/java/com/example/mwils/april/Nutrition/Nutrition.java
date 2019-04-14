@@ -23,15 +23,30 @@ public class Nutrition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_main);
 
-        //assigning the info variable to btnNutrInfo
-        info = (Button) findViewById(R.id.btnExerProg);
-        //assigning the illness variable to btnNutrIllness
-        illness = (Button) findViewById(R.id.btnExerWarmup);
-        //assigning the meals variable to btnNutrMeals
-        meals = (Button) findViewById(R.id.btnExerStanding);
-        //assigning the smoothies variable to btnNutrSmoothies
-        smoothies = (Button) findViewById(R.id.btnNutrSmoothies);
+    setUpFields();
+    setUpOnClicks();
+    }//end onCreate method
 
+    /**
+     * This method assigns the button elements on the page
+     * to variables to be used for onclick events
+     */
+    private void setUpFields(){
+        //assigning the info variable to btnNutrInfo
+        info = findViewById(R.id.btnExerProg);
+        //assigning the illness variable to btnNutrIllness
+        illness = findViewById(R.id.btnExerWarmup);
+        //assigning the meals variable to btnNutrMeals
+        meals = findViewById(R.id.btnExerStanding);
+        //assigning the smoothies variable to btnNutrSmoothies
+        smoothies =  findViewById(R.id.btnNutrSmoothies);
+    }//end setUpFields
+
+    /**
+     * This method creates onClick events to each of the buttons
+     * to navigate the user around the application
+     */
+    private void setUpOnClicks(){
         //navigating the user to the Nutrition Information page
         info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +54,6 @@ public class Nutrition extends AppCompatActivity {
                 startActivity(new Intent(Nutrition.this, NutritionInformation.class));
             }//end onClick method
         });//end OnClickListener
-
         //navigating the user to the Meal Ideas page
         meals.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +61,6 @@ public class Nutrition extends AppCompatActivity {
                 startActivity(new Intent(Nutrition.this, NutritionMeals.class));
             }//end onClick method
         });//end OnClickListener
-
         //navigating the user to the Smoothie Recipes page
         smoothies.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +68,6 @@ public class Nutrition extends AppCompatActivity {
                 startActivity(new Intent(Nutrition.this, NutritionSmoothies.class));
             }//end onClick method
         });//end OnClickListener
-
         //navigating the user to the Feeling Sick? page
         illness.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +75,5 @@ public class Nutrition extends AppCompatActivity {
                 startActivity(new Intent(Nutrition.this, NutritionSick.class));
             }//end onClick method
         });//end OnClickListener
-    }//end onCreate method
-
-}
+    }//end setUpOnClicks
+}//end class

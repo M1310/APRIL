@@ -85,7 +85,7 @@ public class NutritionSick extends Activity {
      */
     private void formatInformation(String unformat){
         //Removes the square bracket from the end of the text
-        unformat = unformat.replaceAll("]","");
+        unformat = unformat.replaceAll("[\\[\\]]","");
         //Splits the String into cells in a String Array
         String [] formatDesc = unformat.split(",");
 

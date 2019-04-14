@@ -56,7 +56,6 @@ public class ExercisesWarmupStanding extends Fragment {
      * in the layout file.
      */
     public void setUpFields() {
-
         //Assigning each of the exercises titles to relveant TextViews
         tvTitle1 = getView().findViewById(R.id.tvStandingTitle1);
         tvTitle2 = getView().findViewById(R.id.tvStandingTitle2);
@@ -67,10 +66,6 @@ public class ExercisesWarmupStanding extends Fragment {
         tvDesc1 = getActivity().findViewById(R.id.tvStandingDesc1);
         tvDesc2 = getActivity().findViewById(R.id.tvStandingDesc2);
         tvDesc3 = getActivity().findViewById(R.id.tvStandingDesc3);
-
-
-
-
     }//end setUpFields
 
     /**
@@ -78,7 +73,6 @@ public class ExercisesWarmupStanding extends Fragment {
      * enters it into the various elements on the tab.
      */
     public void setData() {
-
         //First getting an instance of the Firestore Database tied to this project
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         //Looking for the Collection within that Database that contains all the Exercises
@@ -91,7 +85,6 @@ public class ExercisesWarmupStanding extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         //Assigning the information from the database
                         //to the initialised Strings
                         titles = documentSnapshot.get("Titles").toString();
@@ -99,8 +92,6 @@ public class ExercisesWarmupStanding extends Fragment {
                         //call the methods that format and place the Strings into the relevant textViews
                         formatTitles(titles);
                         formatDescription(descriptions);
-
-
                     }//end on Success
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -108,8 +99,6 @@ public class ExercisesWarmupStanding extends Fragment {
                 Toast.makeText(getActivity(), "Failed to retrieve data " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }//end onFailure
         });//end onFailureListener
-
-
     }//end getData
 
     /**
@@ -120,7 +109,7 @@ public class ExercisesWarmupStanding extends Fragment {
      */
     private void formatTitles(String unformat){
         //Removes the square bracket from the end of the text
-        unformat = unformat.replaceAll("]","");
+        unformat = unformat.replaceAll("[\\[\\]]","");
         //Splits the String into cells in a String Array
         String [] formatTitles = unformat.split(",");
 

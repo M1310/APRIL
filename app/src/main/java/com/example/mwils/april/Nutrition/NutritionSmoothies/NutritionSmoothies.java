@@ -11,7 +11,6 @@ import com.example.mwils.april.SectionsPageAdapter;
 
 public class NutritionSmoothies extends AppCompatActivity {
 
-    private static final String TAG = "NutritionSmoothies";
 
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
@@ -19,16 +18,16 @@ public class NutritionSmoothies extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nutrition_information);
-        Log.d(TAG, "onCreate: Starting.");
+        setContentView(R.layout.activity_nutrition_smoothies);
+
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
         // Setting up the ViewPager with the sections adapter
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager =  findViewById(R.id.container);
         setupViewPager(mViewPager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout =  findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         }//end OnCreate method
 

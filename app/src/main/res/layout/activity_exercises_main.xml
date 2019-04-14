@@ -11,20 +11,17 @@
     <TextView
         android:id="@+id/tvWarningTitle"
         android:layout_width="214dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginBottom="280dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="132dp"
         android:gravity="center"
         android:text="@string/exercises"
         android:textColor="@android:color/white"
         android:textSize="20pt"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnExerWarning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnExerProg"
@@ -46,7 +43,7 @@
         android:layout_height="92dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/rounded_button"
@@ -58,16 +55,15 @@
     <Button
         android:id="@+id/btnExerWarning"
         android:layout_width="187dp"
-        android:layout_height="0dp"
+        android:layout_height="69dp"
         android:layout_marginStart="112dp"
         android:layout_marginLeft="112dp"
-        android:layout_marginBottom="226dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/rounded_button_admin"
         android:text="@string/view_warning"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWarningTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/btnExerWarmup" />
 
 </android.support.constraint.ConstraintLayout>

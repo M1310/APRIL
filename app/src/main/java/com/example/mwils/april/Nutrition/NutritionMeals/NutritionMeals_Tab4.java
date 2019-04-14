@@ -70,7 +70,6 @@ public class NutritionMeals_Tab4 extends Fragment {
      * enters it into the various elements on the tab.
      */
     public void setData() {
-
         //First getting an instance of the Firestore Database tied to this project
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         //Looking for the Collection within that Database that contains all the Exercises
@@ -86,6 +85,7 @@ public class NutritionMeals_Tab4 extends Fragment {
                         //Assigning the information from the database
                         //to the initialised Strings
                         description = documentSnapshot.get("Text").toString();
+                        url = documentSnapshot.get("Diagram").toString();
                         //formatting the String array into individual lines within a single String
                     }//end on Success
                 }).addOnFailureListener(new OnFailureListener() {
@@ -99,6 +99,7 @@ public class NutritionMeals_Tab4 extends Fragment {
                 //Calling methods to format and display
                 //the info that's been called down
                 formatText(description);
+                formatDiagram(url);
                 // formatDiagram(url);
             }//end onComplete
         });//end onCompleteListener
@@ -112,7 +113,7 @@ public class NutritionMeals_Tab4 extends Fragment {
      */
     private void formatText(String unformat){
         //Removes the square bracket from the end of the text
-        unformat = unformat.replaceAll("]","");
+        unformat = unformat.replaceAll("[\\[\\]]","");
         //Splits the String into cells in a String Array
         String [] formatText = unformat.split(",");
 

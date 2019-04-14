@@ -25,10 +25,10 @@ public class Exercises extends AppCompatActivity {
 
     }//end onCreate method
 
-    /*
-    This method simply assigns the button elements on the page
+    /**
+    This method assigns the button elements on the page
     to variables to be used for onclick events
-     */
+     **/
     private void setUpFields(){
         //assigning the programme variable to btnExerProg
         programme = findViewById(R.id.btnExerProg);
@@ -38,10 +38,10 @@ public class Exercises extends AppCompatActivity {
         warning = findViewById(R.id.btnExerWarning);
     }//end setUpFields
 
-    /*
+    /**
     This method sets all the onClick events for each
     button to enable user navigation
-     */
+     **/
     private void setUpOnClicks(){
         //navigating the user to the Exercise Programme page
         programme.setOnClickListener(new View.OnClickListener() {

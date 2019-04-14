@@ -9,15 +9,32 @@ import android.widget.Button;
 
 public class Admin extends AppCompatActivity {
 
+    //creating a variable to hold the btnCreateUser
+    private Button btnCreateUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-        //assigning btnCreateUser to the Create User button on the admin page
-        //creating a variable to hold the btnCreateUser
-        Button btnCreateUser = findViewById(R.id.btnCreateUser);
+        setUpFields();
+        setUpOnClicks();
+    }//end onCreate method
 
+    /**
+     * This method assigns the button elements on the page
+     * to variables to be used for onclick events
+     */
+    private void setUpFields(){
+        //assigning btnCreateUser to the Create User button on the admin page
+        btnCreateUser = findViewById(R.id.btnCreateUser);
+    }//end setUpFields
+
+    /**
+     * This method sets the onClick event to navigate the user
+     * through the application
+     */
+    private void setUpOnClicks(){
         //setting an onclicklistener to navigate the user to the correct page
         btnCreateUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,5 +42,5 @@ public class Admin extends AppCompatActivity {
                 startActivity(new Intent(Admin.this, CreateUser.class));
             }//end onClick method
         });//end onClickListener
-    }//end onCreate method
+    }//end setUpOnClicks
 }//end class

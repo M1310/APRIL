@@ -114,7 +114,7 @@ public class NutritionInformation_Tab1 extends Fragment {
      */
     private void formatText(String unformat){
         //Removes the square bracket from the end of the text
-        unformat = unformat.replaceAll("]","");
+        unformat = unformat.replaceAll("[\\[\\]]","");
         //Splits the String into cells in a String Array
         String [] formatText = unformat.split(",");
 

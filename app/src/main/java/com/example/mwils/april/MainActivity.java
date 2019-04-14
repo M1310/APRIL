@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     //Creating instance of Firebase authenticator
     private FirebaseAuth auth;
 
-    Button exercises; Button nutrition; Button admin;
+    //creating variables for every button on the page
+    Button exercises, nutrition, admin, logout;
 
     //creating variable to hold the results of the isAdmin check
     private boolean isAdmin = false;
@@ -40,9 +41,68 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+    setUpFields();
+    setUpOnClicks();
+    toggleAdmin();
+    }//end onCreate method
 
+    /**
+     * This method assigns all the buttons to variables
+     * to be used for onClick events
+     */
+    private void setUpFields(){
+        //assigning the logout variable to btnLogOut
+        logout = findViewById(R.id.btnLogOut);
+        //assigning the exercises variable to btnExercises
+        exercises = findViewById(R.id.btnExercises);
+        //assigning the nutrition variable to btnNutrition
+        nutrition = findViewById(R.id.btnNutrition);
+        //assigning the admin variable to btnAdmin
+        admin = findViewById(R.id.btnAdmin);
+    }//end setUpFields
 
+    /**
+     * This method sets up on the onClick events for the buttons
+     * on the page, both navigation and logout
+     */
+    private void setUpOnClicks(){
+        //logging the user out when the button is clicked
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //logs the user out of the application
+                auth.signOut();
+                finish();
+                //redirects the user back to the login page
+                startActivity(new Intent(MainActivity.this, LoginPage.class));
+            }//end onClick method
+        });//end onClickListener
 
+        //navigating the user to the Nutrition Main page
+        nutrition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Nutrition.class));
+            }//end onClick method
+        });//end onClickListener
+
+        //navigating the user to the Exercises Main page
+        exercises.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Exercises.class));
+            }//end onClick method
+        });//end onClickListener
+    }//end setUpOnClicks
+
+    /**
+     * This page connects to the database, takes the currently logged in User's ID
+     * and checks it against a record in the DB to see whether or not that user
+     * is considered an Admin. If they are, then it will make the Admin button visible, which
+     * is invisible by default. This button lets the user access the admin only page
+     * of the application
+     */
+    private void toggleAdmin(){
         //creates an instance of the Firebase authentication class
         auth = FirebaseAuth.getInstance();
         //Retrieves the current User's ID to check if they have admin rights
@@ -54,16 +114,6 @@ public class MainActivity extends AppCompatActivity {
         CollectionReference colref = database.collection("Users");
         //Checking for a specific admin user in that Collection
         DocumentReference docRef = colref.document(uid);
-
-        //assigning the logout variable to btnLogOut
-        //creating variables for every button on the page
-        Button logout = findViewById(R.id.btnLogOut);
-        //assigning the exercises variable to btnExercises
-        exercises = findViewById(R.id.btnExercises);
-        //assigning the nutrition variable to btnNutrition
-        nutrition = findViewById(R.id.btnNutrition);
-        //assigning the admin variable to btnAdmin
-        admin = findViewById(R.id.btnAdmin);
 
         //calls the record down from the Database
         docRef.get()
@@ -98,46 +148,5 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("Failed to get doc: "+e);
                     }//end exception
                 });//end onFailureListener
-
-
-        //logging the user out when the button is clicked
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //logs the user out of the application
-                auth.signOut();
-                finish();
-                //redirects the user back to the login page
-                startActivity(new Intent(MainActivity.this, LoginPage.class));
-
-
-
-
-            }//end onClick method
-        });//end onClickListener
-
-        //navigating the user to the Nutrition Main page
-        nutrition.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Nutrition.class));
-            }//end onClick method
-        });//end onClickListener
-
-        //navigating the user to the Exercises Main page
-        exercises.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Exercises.class));
-            }//end onClick method
-        });//end onClickListener
-
-        //hiding the admin settings button
-        //will display if the user is a
-        //verified admin user
-
-
-
-
-    }//end onCreate method
+    }//end toggleAdmin
 }//end class

@@ -91,7 +91,6 @@ public class ExercisesWarmupSeated extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-
                         //Assigning the information from the database
                         //to the initialised Strings
                         titles = documentSnapshot.get("Titles").toString();
@@ -99,8 +98,6 @@ public class ExercisesWarmupSeated extends Fragment {
                         //call the methods that format and place the Strings into the relevant textViews
                         formatTitles(titles);
                         formatDescription(descriptions);
-
-
                     }//end on Success
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -108,8 +105,6 @@ public class ExercisesWarmupSeated extends Fragment {
                 Toast.makeText(getActivity(), "Failed to retrieve data " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }//end onFailure
         });//end onFailureListener
-
-
     }//end getData
 
     /**
@@ -120,7 +115,7 @@ public class ExercisesWarmupSeated extends Fragment {
      */
     private void formatTitles(String unformat){
         //Removes the square bracket from the end of the text
-        unformat = unformat.replaceAll("]","");
+        unformat = unformat.replaceAll("[\\[\\]]","");
         //Splits the String into cells in a String Array
         String [] formatTitles = unformat.split(",");
 
