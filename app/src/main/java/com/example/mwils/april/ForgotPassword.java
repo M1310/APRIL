@@ -42,7 +42,7 @@ public class ForgotPassword extends AppCompatActivity {
 
                 //performing validation to make sure the user actually
                 //filled the email field
-                if(email.equals(null)){
+                if(email.equals(null) || email.isEmpty()){
                     Toast.makeText(ForgotPassword.this, "Please enter an email address.",Toast.LENGTH_SHORT).show();
                 }//end if statement
                 //if the user has actually entered an email address, go through the reset process
