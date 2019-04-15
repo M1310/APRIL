@@ -13,16 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CreateUser" />
+        <activity android:name=".Physio"></activity>
+        <activity android:name=".CreateClient" />
+        <activity android:name=".CreatePhysio" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".Admin" />
-        <activity android:name=".Exercises.ExerciseWarmup.ExercisesWarmup"
+        <activity
+            android:name=".Exercises.ExerciseWarmup.ExercisesWarmup"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Exercises.Exercises"
+        <activity
+            android:name=".Exercises.Exercises"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Exercises.ExercisesWarning"
+        <activity
+            android:name=".Exercises.ExercisesWarning"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Nutrition.NutritionSick"
+        <activity
+            android:name=".Nutrition.NutritionSick"
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Nutrition.NutritionInformation.NutritionInformation"

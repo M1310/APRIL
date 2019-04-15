@@ -2,6 +2,7 @@ package com.example.mwils.april;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,10 +31,22 @@ public class LoginPage extends AppCompatActivity {
     //Creating instance of Firebase authenticator
     private FirebaseAuth auth;
 
+    private String currentUser;
+
+    //Calling the SharedPreferences variables
+    //to hold global information about the user
+    private SharedPreferences shared;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+
+        //assigning the variables to the sharedprefences to set the global variables
+        shared = getApplicationContext().getSharedPreferences("YourSessionName",MODE_PRIVATE);
+        editor = shared.edit();
+
 
         //assigns the fields to variables that'll be passed through
         setupFields();
@@ -105,6 +118,11 @@ public class LoginPage extends AppCompatActivity {
                if(task.isSuccessful()){
                    //if authentication is successful, inform user and send them to main page
                    Toast.makeText(LoginPage.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                   //Once the user has successfully logged in, the next few lines take the user's email address
+                   //and set it as a globally accessible variable to be used on other pages
+                   currentUser = auth.getCurrentUser().getEmail();
+                   editor.putString("currentUser",currentUser);
+                   editor.commit();
                    startActivity(new Intent(LoginPage.this, MainActivity.class));
                }else{
                    //if authentication fails, display message informing user

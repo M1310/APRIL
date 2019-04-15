@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     //creating variables for every button on the page
-    Button exercises, nutrition, admin, logout;
+    Button exercises, nutrition, admin, logout, physio;
 
     //creating variable to hold the results of the isAdmin check
-    private boolean isAdmin = false;
+    private boolean isAdmin = false, isPhysio = false;
 
 
     @Override
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     setUpFields();
     setUpOnClicks();
-    toggleAdmin();
+    toggleFields();
     }//end onCreate method
 
     /**
@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
         nutrition = findViewById(R.id.btnNutrition);
         //assigning the admin variable to btnAdmin
         admin = findViewById(R.id.btnAdmin);
+        admin.setVisibility(View.INVISIBLE);
+        //assigning the physio variable to btnPhysio
+        physio = findViewById(R.id.btnPhysio);
+        physio.setVisibility(View.INVISIBLE);
     }//end setUpFields
 
     /**
@@ -93,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Exercises.class));
             }//end onClick method
         });//end onClickListener
+
     }//end setUpOnClicks
 
     /**
@@ -100,9 +105,9 @@ public class MainActivity extends AppCompatActivity {
      * and checks it against a record in the DB to see whether or not that user
      * is considered an Admin. If they are, then it will make the Admin button visible, which
      * is invisible by default. This button lets the user access the admin only page
-     * of the application
+     * of the application. It carries out the same thing for the Physiotherapist page
      */
-    private void toggleAdmin(){
+    private void toggleFields(){
         //creates an instance of the Firebase authentication class
         auth = FirebaseAuth.getInstance();
         //Retrieves the current User's ID to check if they have admin rights
@@ -124,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                         //it sets the boolean to the same value as the database
                         if (documentSnapshot.exists()){
                             isAdmin = documentSnapshot.getBoolean("isAdmin");
-
+                            isPhysio = documentSnapshot.getBoolean("isPhysio");
                             if(isAdmin) {
                                 admin.setVisibility(View.VISIBLE);
                                 //setting onClick in here so that users don't trigger
@@ -136,9 +141,20 @@ public class MainActivity extends AppCompatActivity {
                                         startActivity(new Intent(MainActivity.this, Admin.class));
                                     }//end onClick method
                                 });//end onClickListener
-                            }else{
-                                admin.setVisibility(View.INVISIBLE);
-                            }//end else statement
+                            }//end if isAdmin visibility checker
+                            if(isPhysio) {
+                                //if the user is listed as a physiotherapist, then it makes the physio button visible
+                                physio.setVisibility(View.VISIBLE);
+
+                                //similar to the admin button, the onclick for physio is being set here
+                                //so an invisible button cannot be triggered.
+                                physio.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        startActivity((new Intent(MainActivity.this, Physio.class)));
+                                    }//end onClick method
+                                });//end onClickListener
+                            }//end if isPhysio visibility checker
                         }//end if statement
                     }//end onSuccess method
                 })//end onSuccessListener
