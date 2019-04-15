@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Physio"></activity>
+        <activity android:name=".PhysioDailyExercises"></activity>
+        <activity android:name=".Exercises.ExerciseProgramme.ExerciseTracker" />
+        <activity android:name=".Physio" />
         <activity android:name=".CreateClient" />
         <activity android:name=".CreatePhysio" />
         <activity android:name=".ForgotPassword" />

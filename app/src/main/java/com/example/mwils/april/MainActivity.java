@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         //creates an instance of the Firebase authentication class
         auth = FirebaseAuth.getInstance();
         //Retrieves the current User's ID to check if they have admin rights
-        String uid = auth.getUid();
+        String uid = auth.getCurrentUser().getEmail();
         //Attempting to check if user is admin
         //First getting an instance of the Firestore Database tied to this project
         FirebaseFirestore database = FirebaseFirestore.getInstance();
@@ -164,5 +164,5 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("Failed to get doc: "+e);
                     }//end exception
                 });//end onFailureListener
-    }//end toggleAdmin
+    }//end toggleFields
 }//end class

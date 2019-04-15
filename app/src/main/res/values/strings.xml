@@ -61,4 +61,17 @@
     <string name="physio_page">Physiotherapist Page</string>
     <string name="Physio">Physio</string>
     <string name="create_client">Create Client</string>
+    <string name="exercise_details_text">Enter Exercise Details here</string>
+    <string name="exercise_details_text_proper">Enter Exercise Details Here</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="exercise_id">Exercise ID</string>
+    <string name="repititions">Repititions</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="blank" />
+    <string name="_1_10">1-10</string>
+    <string name="enter">Enter</string>
+    <string name="track">Track</string>
+    <string name="Physio_Label">TextView</string>
+    <string name="view_daily_exercises">View Daily Exercises</string>
+    <string name="search">Search</string>
 </resources>

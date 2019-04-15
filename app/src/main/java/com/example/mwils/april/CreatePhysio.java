@@ -145,7 +145,7 @@ public class CreatePhysio extends AppCompatActivity {
                                 Map<String, Object> user = new HashMap<>();
                                 user.put("isAdmin", newadmin);
                                 user.put("isPhysio", newphysio);
-                                String uid = task.getResult().getUser().getUid();
+                                String uid = task.getResult().getUser().getEmail();
                                 db.collection("Users").document(uid).set(user);
                                 //this if statement checks if the user is as a new physio
                                 //if they are, it creates a collection based of their email address

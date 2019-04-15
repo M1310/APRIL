@@ -159,6 +159,14 @@ public class CreateClient extends AppCompatActivity {
                                 client.put("Email Address", emailS);
                                 //Placing the client information in the Physio's collection
                                 db.collection(phEmail).document(emailS).set(client);
+
+                                //Doing the usual user assignment of making sure that clients are not admins or physios
+                                //Creating a map object to hold the admin toggle for the user
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("isAdmin", false);
+                                user.put("isPhysio", false);
+                                String uid = task.getResult().getUser().getEmail();
+                                db.collection("Users").document(uid).set(user);
                             }//end else statement
                         }//end onComplete method
                     });//end onCompleteListener
