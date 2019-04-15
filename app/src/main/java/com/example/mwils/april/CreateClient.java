@@ -1,5 +1,6 @@
 package com.example.mwils.april;
 
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,12 +10,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.bumptech.glide.signature.ObjectKey;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -22,11 +21,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class CreateUser extends AppCompatActivity {
+public class CreateClient extends AppCompatActivity {
 
     //initialising the variables for the items in the activity
-    private Button btnCreateUser; EditText email; EditText password; EditText confirm;
-    private CheckBox admin;
+    private Button btnCreateClient;
+    private EditText email, password, confirm, name;
+    private String phEmail, emailS, passwordS, confirmS, nameS;
 
     //initialising a variable for firebase auth
     private FirebaseAuth auth;
@@ -34,13 +34,24 @@ public class CreateUser extends AppCompatActivity {
     //initialising a variable for firestore database
     private FirebaseFirestore db;
 
+    //Calling the SharedPreferences variables
+    //to hold global information about the user
+    private SharedPreferences shared;
+    private SharedPreferences.Editor editor;
 
     //initialising a variable for Firestore Collection reference
-    private CollectionReference colref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_user);
+        setContentView(R.layout.activity_create_client);
+
+        //Calling the sharedpreferences to access the global variable
+        shared = getApplicationContext().getSharedPreferences("YourSessionName",MODE_PRIVATE);
+        editor = shared.edit();
+
+
+        //sets the physiotherapists to the current users email address
+        phEmail = (shared.getString("currentUser",null));
 
         setUpFields();
         setUpOnClick();
@@ -53,13 +64,13 @@ public class CreateUser extends AppCompatActivity {
      */
     private void setUpFields(){
         //Assigning the variables to the text fields in the activity
-        email = findViewById(R.id.etNewEmail);
-        password = findViewById(R.id.etPassword);
-        confirm = findViewById(R.id.etPasswordConfirm);
-        admin = findViewById(R.id.cbAdmin);
+        email = findViewById(R.id.etNewClientEmail);
+        password = findViewById(R.id.etClientPassword);
+        confirm = findViewById(R.id.etClientPasswordConfirm);
+        name = findViewById(R.id.etClientName);
 
         //Assigning btnCreateUser to the button in the activity
-        btnCreateUser = findViewById(R.id.btnConfirmCreate);
+        btnCreateClient = findViewById(R.id.btnConfirmClientCreate);
     }//end setUpFields
 
     /**
@@ -68,7 +79,7 @@ public class CreateUser extends AppCompatActivity {
      */
     private void setUpOnClick(){
         //Setting onClickListener to create the new user
-        btnCreateUser.setOnClickListener(new View.OnClickListener() {
+        btnCreateClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createUser();
@@ -85,12 +96,13 @@ public class CreateUser extends AppCompatActivity {
 
         //Retrieves the string values of the text entered
         //into each field in the activity
-        String emailS = email.getText().toString().trim();
-        String passwordS = password.getText().toString();
-        String confirmS = confirm.getText().toString();
+        emailS = email.getText().toString().trim();
+        passwordS = password.getText().toString();
+        confirmS = confirm.getText().toString();
+        nameS = name.getText().toString();
 
         //Checks if any of the fields are empty
-        if(emailS.isEmpty() || passwordS.isEmpty() || confirmS.isEmpty()){
+        if(emailS.isEmpty() || passwordS.isEmpty() || confirmS.isEmpty() || nameS.isEmpty()){
             Toast.makeText(this,"All fields are required",Toast.LENGTH_SHORT).show();
         }//end if statement
         //if the fields aren't empty, check the password and the confirmation match
@@ -111,42 +123,42 @@ public class CreateUser extends AppCompatActivity {
      * has been ticked
      */
     private void createUser(){
+        //creating an instance of Firebase Database
+        db = FirebaseFirestore.getInstance();
+
         //creating an instance of Firebase Auth
         auth = FirebaseAuth.getInstance();
 
-        //creating an instance of Firebase Database
-        db = FirebaseFirestore.getInstance();
         //checks that the fields have been populated
         if(validate()){
             //extracting the Strings from the EditText fields
             String newEmail = email.getText().toString().trim();
-            String newPass = password.getText().toString();
+            String newPass = password.getText().toString().trim();
 
             //Calls the instance of Firebase auth and creates the user
             auth.createUserWithEmailAndPassword(newEmail,newPass)
-                    .addOnCompleteListener(CreateUser.this, new OnCompleteListener<AuthResult>() {
+                    .addOnCompleteListener(CreateClient.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             //lets the user know if the creation failed
                             if(!task.isSuccessful()){
-                                Toast.makeText(CreateUser.this, "User Creation failed: "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateClient.this, "User Creation failed: "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                             }//end if statement
                             else {
                                 //if the creation was successful, let the user know, and add them to the users database
                                 //also resets the fields in case the user wanted to make another user
-                                boolean newadmin = admin.isChecked();
                                 email.setText("");
                                 password.setText("");
                                 confirm.setText("");
-                                admin.setChecked(false);
-                                Toast.makeText(CreateUser.this,"User Creation Successful!", Toast.LENGTH_SHORT).show();
+                                name.setText("");
+                                Toast.makeText(CreateClient.this,"User Creation Successful!", Toast.LENGTH_SHORT).show();
 
-                                //Creating a map object to hold the admin toggle for the user
-                                Map<String, Object> user = new HashMap<>();
-                                user.put("isAdmin", newadmin);
-                                //
-                                String uid = task.getResult().getUser().getUid();
-                                db.collection("Users").document(uid).set(user);
+                                //Creating a map object to hold the admin toggle for the client
+                                Map<String, Object> client = new HashMap<>();
+                                client.put("Client Name", nameS);
+                                client.put("Email Address", emailS);
+                                //Placing the client information in the Physio's collection
+                                db.collection(phEmail).document(emailS).set(client);
                             }//end else statement
                         }//end onComplete method
                     });//end onCompleteListener

@@ -56,4 +56,9 @@
     <string name="meals">Meal Ideas</string>
     <string name="smoothies">Smoothie Recipes</string>
     <string name="admin_page">Admin Page</string>
+    <string name="physio">Physiotherapist</string>
+    <string name="client_name">Please enter client name</string>
+    <string name="physio_page">Physiotherapist Page</string>
+    <string name="Physio">Physio</string>
+    <string name="create_client">Create Client</string>
 </resources>

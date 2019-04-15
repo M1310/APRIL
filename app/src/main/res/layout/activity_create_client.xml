@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".CreateUser">
+    tools:context=".CreatePhysio">
 
     <EditText
-        android:id="@+id/etNewEmail"
+        android:id="@+id/etNewClientEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
@@ -24,7 +24,7 @@
         tools:targetApi="o" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etClientPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -36,11 +36,11 @@
         android:textColorHint="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNewEmail"
+        app:layout_constraintTop_toBottomOf="@+id/etNewClientEmail"
         tools:targetApi="o" />
 
     <EditText
-        android:id="@+id/etPasswordConfirm"
+        android:id="@+id/etClientPasswordConfirm"
         android:layout_width="wrap_content"
         android:layout_height="41dp"
         android:layout_marginTop="8dp"
@@ -57,28 +57,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintTop_toBottomOf="@+id/etClientPassword"
         app:layout_constraintVertical_bias="0.06"
         tools:targetApi="o" />
 
+    <EditText
+        android:id="@+id/etClientName"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="@string/client_name"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textColorHint="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClientPasswordConfirm"
+        app:layout_constraintVertical_bias="0.035"
+        tools:targetApi="o" />
+
     <Button
-        android:id="@+id/btnConfirmCreate"
+        android:id="@+id/btnConfirmClientCreate"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:background="@drawable/rounded_button_admin"
-        android:text="@string/create_user"
+        android:text="@string/create_client"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordConfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/etClientPasswordConfirm" />
 
-    <CheckBox
-        android:id="@+id/cbAdmin"
-        android:layout_width="153dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:textColor="@color/colorWhite"
-        android:text="@string/admin_user"
-        app:layout_constraintStart_toStartOf="@+id/etPasswordConfirm"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordConfirm" />
 </android.support.constraint.ConstraintLayout>

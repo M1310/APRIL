@@ -7,15 +7,15 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class Admin extends AppCompatActivity {
+public class Physio extends AppCompatActivity {
 
     //creating a variable to hold the btnCreateUser
-    private Button btnCreateUser;
+    private Button btnCreateClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_physio);
 
         setUpFields();
         setUpOnClicks();
@@ -27,7 +27,7 @@ public class Admin extends AppCompatActivity {
      */
     private void setUpFields(){
         //assigning btnCreateUser to the Create User button on the admin page
-        btnCreateUser = findViewById(R.id.btnCreateUser);
+        btnCreateClient = findViewById(R.id.btnCreateClient);
     }//end setUpFields
 
     /**
@@ -36,10 +36,10 @@ public class Admin extends AppCompatActivity {
      */
     private void setUpOnClicks(){
         //setting an onclicklistener to navigate the user to the correct page
-        btnCreateUser.setOnClickListener(new View.OnClickListener() {
+        btnCreateClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Admin.this, CreatePhysio.class));
+                startActivity(new Intent(Physio.this, CreateClient.class));
             }//end onClick method
         });//end onClickListener
     }//end setUpOnClicks
