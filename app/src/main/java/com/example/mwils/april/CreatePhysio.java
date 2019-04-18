@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -73,6 +74,25 @@ public class CreatePhysio extends AppCompatActivity {
                 createUser();
             }//end onClick method
         });//end onClickListener method
+
+        //Setting Change Listeners to the two checked boxes so they both can't be checked at the same time
+        admin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (admin.isChecked()){
+                    physio.setChecked(false);
+                }//end if statement
+            }//end onCheckedChanged
+        });//end onCheckedChangeListener
+
+        physio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (physio.isChecked()){
+                    physio.setChecked(false);
+                }//end if statement
+            }//end onCheckedChanged
+        });//end onCheckecdChangeListener
     }//end setUpOnClick
 
     /**
@@ -87,6 +107,8 @@ public class CreatePhysio extends AppCompatActivity {
         String emailS = email.getText().toString().trim();
         String passwordS = password.getText().toString();
         String confirmS = confirm.getText().toString();
+
+
 
         //Checks if any of the fields are empty
         if(emailS.isEmpty() || passwordS.isEmpty() || confirmS.isEmpty()){

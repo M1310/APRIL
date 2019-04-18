@@ -71,7 +71,7 @@
     <string name="_1_10">1-10</string>
     <string name="enter">Enter</string>
     <string name="track">Track</string>
-    <string name="Physio_Label">TextView</string>
+    <string name="Physio_Label">Please select a client from the list below to view their exercises for today.</string>
     <string name="view_daily_exercises">View Daily Exercises</string>
     <string name="search">Search</string>
 </resources>

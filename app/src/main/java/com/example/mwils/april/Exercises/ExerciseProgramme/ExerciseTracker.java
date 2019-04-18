@@ -97,25 +97,34 @@ Button enter;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         String date = dateFormat.format(new Date()); // Find today's date
 
-        client.put("Date", date);
-        client.put("Exercise ID", exID);
-        client.put("Exercise Name", intentTitle);
-        client.put("Repetitions", etReps.getText().toString());
-        client.put("Difficulty",etDiff.getText().toString());
+        int reps = Integer.parseInt(etReps.getText().toString());
 
+        //Checking if any fields are empty
+        if(etReps.getText().toString().isEmpty() || etDiff.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
+        }else if(reps < 1 || reps >10){
+            Toast.makeText(getApplicationContext(), "Pleae a difficulty between 1 and 10", Toast.LENGTH_SHORT).show();
+        }else{
+            client.put("Date", date);
+            client.put("Exercise ID", exID);
+            client.put("Exercise Name", intentTitle);
+            client.put("Repetitions", etReps.getText().toString());
+            client.put("Difficulty",etDiff.getText().toString());
 
-        db.collection("ExerciseTracker").document(clEmail).set(client)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(ExerciseTracker.this, "Tracking Successful", Toast.LENGTH_SHORT).show();
-                    }//end onSuccess
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(ExerciseTracker.this, "Enter Tracking Failed", Toast.LENGTH_SHORT).show();
-        }//end onFailure
-        });
+            db.collection("ExerciseTracker").document(clEmail).set(client)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(ExerciseTracker.this, "Tracking Successful", Toast.LENGTH_SHORT).show();
+                        }//end onSuccess
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(ExerciseTracker.this, "Enter Tracking Failed: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                }//end onFailure
+            });//end onFailureListener
+        }//end else statement
+
     }//end enterData
 
     /**

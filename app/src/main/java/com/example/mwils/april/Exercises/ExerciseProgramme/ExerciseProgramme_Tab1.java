@@ -35,7 +35,7 @@ public class ExerciseProgramme_Tab1 extends Fragment {
     ImageView diagram;
     //Creating String variables to hold the data from the DB
     String title,  description, url;
-    //Createing Button variable to open the exercise track
+    //Creating Button variable to open the exercise tracker
     Button tracker;
     //Creating a variable to hold the instance of Firebase Authentication
     FirebaseAuth auth;
@@ -64,10 +64,10 @@ public class ExerciseProgramme_Tab1 extends Fragment {
         toggleFields();
     }//end onStart
 
-    /*
+    /**
     This method assigns the variables to the various elements
     in the layout file.
-     */
+     **/
     public void setUpFields() {
         tabtitle = getView().findViewById(R.id.tvEx1Title);
         exDescription = getActivity().findViewById(R.id.tvEx1Description);
@@ -103,7 +103,6 @@ public class ExerciseProgramme_Tab1 extends Fragment {
                         description = description.replaceAll(",", "\n");
                         description = description .replaceAll("[\\[\\]]","");
                         url = documentSnapshot.get("Diagram").toString();
-
                 }//end on Success
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -169,6 +168,9 @@ public class ExerciseProgramme_Tab1 extends Fragment {
                 });//end onFailureListener
     }//end toggleAdmin
 
+    /**
+     * This method sets up the onClick methods for buttons on the page
+     */
     private void setUpOnClicks(){
         tracker.setOnClickListener(new View.OnClickListener() {
             @Override

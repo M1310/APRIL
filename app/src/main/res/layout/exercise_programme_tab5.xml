@@ -7,6 +7,21 @@
     android:background="@drawable/gradient"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/btnEx5Track"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/track"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEx5Description"
+        app:layout_constraintVertical_bias="0.015" />
+
     <TextView
         android:id="@+id/tvEx5Title"
         android:layout_width="300dp"
